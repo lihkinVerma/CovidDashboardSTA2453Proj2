@@ -1,0 +1,13 @@
+name: covidDashboard
+title: covidDashboard
+username:
+account: lihkin
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5713726
+bundleId: 5607926
+url: https://lihkin.shinyapps.io/covidDashboard/
+when: 1645584810.56366
+lastSyncTime: 1645584810.56368
+asMultiple: FALSE
+asStatic: FALSE
