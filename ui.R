@@ -1,9 +1,14 @@
+#------------------------------------------------------------
+# Project submitted by:
 # Nikhil Verma and Yang Qu
+#------------------------------------------------------------
 
 options(rsconnect.max.bundle.size = 8.192e+9)
+
 library(shiny)
 library(DT)
 library(shinydashboardPlus)
+
 source("Modules/CountryName_wrangling.R")
 source("Modules/DataDownload.R")
 source("Modules/Continent.R")
@@ -26,13 +31,23 @@ source("Modules/Moran_Page.R")
 source("Modules/Moran_Main_Page.R")
 source("Modules/Logistic_Growth_Model_Page.R")
 
+#------------------------------------------------------------
+# Main UI of the dashboard
+#------------------------------------------------------------
 ui <- dashboardPage(
-  title = "COVID-19 Dashboard",
-  dashboardHeader(titleWidth = 220, title = span(img(src = "Corona2.png", width = 50)), disable = FALSE),
+  title = "SARS-COV-19-Dashboard",
+  #------------------------------------------------------------
+  # Dashboard header
+  #------------------------------------------------------------
+  dashboardHeader(titleWidth = 210, 
+                  title = span(img(src = "SARS-CoV-2_without_background.png", 
+                                   width = 50)), disable = FALSE),
+  #------------------------------------------------------------
+  # Dashboard sidebar
+  #------------------------------------------------------------
   {
-    ## Sidebar  #----
     dashboardSidebar(
-      width = 220,
+      width = 210,
       sidebarMenu(
         id = "tabs",
         menuItem("Home Page", tabName = "homepage"),
@@ -75,13 +90,17 @@ ui <- dashboardPage(
       )
     )
   },
+  #------------------------------------------------------------
+  # Dashboard body
+  #------------------------------------------------------------
   dashboardBody({
-    # Body #---------------------------------------------------
     tabItems(
-      ## Home Page ####
+      #------------------------------------------------------------
+      # Home Page
+      #------------------------------------------------------------
       tabItem(
         "homepage",
-        tags$img(src = "background2.jpg", style = "position: absolute; opacity: 0.3"),
+        tags$img(src = "techcoronav.gif", style = "position: absolute; opacity: 0.2"),
         column(
           width = 12,
 
@@ -129,10 +148,7 @@ This app provides a dashboard based on COVID-19 data as collected by the WHO and
   <a href = https://sacoronavirus.co.za/>https://sacoronavirus.co.za/</a> </div>
       <div style= 'font-size: 14px;color:green;font-weight:bold'> Contact us:  <a href = 'mailto: symstat@up.ac.za' > symstat@up.ac.za </a> </div>
             <p>"),
-          ## Tweeter Tag.
-          # tags$head(
-          #   tags$script(async = NA, src = "https://platform.twitter.com/widgets.js")
-          # ),
+          
           HTML("
         <p class='twitter-tweet' data-lang='en'><p lang='en' dir='ltr' style = 'font-size:15px;font-weight:bold'>
         <div style= 'font-size: 14px;color:green;font-weight:bold'> Twitter page: 
@@ -144,12 +160,13 @@ This app provides a dashboard based on COVID-19 data as collected by the WHO and
           column(width = 1),
           column(
             width = 1,
-            img(src = "Pretoria.jpg", height = "130px", width = "120px")
+            img(src = "MSCAC_uoft.png", height = "100px", width = "350px")
           ),
+          
           column(width = 8),
           column(
             width = 1,
-            img(src = "neyshabur.png", height = "130px", width = "90px")
+            img(src = "uoft.png", height = "100px", width = "100px")
           )
         )
       ),
@@ -238,7 +255,9 @@ This app provides a dashboard based on COVID-19 data as collected by the WHO and
                </p>
                ")
       ),
-      ## per Country Pages. ####
+      #------------------------------------------------------------
+      # Per country pages
+      #------------------------------------------------------------
       tabItem(
         tabName = "mainPage_country",
         ui_mainBody_Page("mainPage__country")
@@ -333,7 +352,9 @@ This app provides a dashboard based on COVID-19 data as collected by the WHO and
         #        ui_leafMap_Page("Ordinary_map")
       ),
 
-      # per Continent ####
+      #------------------------------------------------------------
+      # per Continent Pages
+      #------------------------------------------------------------
       tabItem(
         tabName = "mainPage_continent",
         ui_mainBody_Page("mainPage__continent")
@@ -382,3 +403,8 @@ The generalized logistic curve is commonly used for dynamic modeling in many bra
     )
   })
 )
+
+#------------------------------------------------------------
+# refernces: 1. https://www.frontiersin.org/articles/10.3389/fpubh.2020.623624/full
+#            2. https://pomber.github.io/covid19/timeseries.json
+#------------------------------------------------------------
