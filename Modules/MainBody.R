@@ -3,9 +3,7 @@ library(shinydashboard)
 library(shinyWidgets)
 library(plotly)
 library(plotlyGeoAssets)
-#########
 
-#########
 ui_mainBody <- function(id, ProportionShow = TRUE) {
   ns <- NS(id)
   tagList(
@@ -90,10 +88,6 @@ ui_mainBody <- function(id, ProportionShow = TRUE) {
 
 server_mainBody <- function(input, output, session, data, ProportionShow = TRUE) {
   ns <- session$ns
-
-
-
-
   data_summary <- reactive({
     data %>%
       filter(data$Countries == "World", as.character(max(ordered(data$DateRep))) == as.character(data$DateRep)) %>%

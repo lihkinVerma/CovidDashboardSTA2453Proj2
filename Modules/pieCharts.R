@@ -1,6 +1,7 @@
 library(shiny)
 library(plotly)
 library(dplyr)
+
 f_labels <- function(x) {
   switch(x,
     "Cases" = return("New cases"),
@@ -12,7 +13,7 @@ f_labels <- function(x) {
   )
 }
 
-ui_barCharts <- function(id) {
+ui_pieCharts <- function(id) {
   ns <- NS(id)
   tagList(
     sliderInput(ns("inp"), label = "Day", min = 1, max = 10, value = 10, step = 2, width = "400px", animate = TRUE),
@@ -20,7 +21,7 @@ ui_barCharts <- function(id) {
   )
 }
 
-server_barCharts <- function(input, output, session, data, Var2show, how_many = 10) {
+server_pieCharts <- function(input, output, session, data, Var2show) {
   print(Var2show)
   ns <- session$ns
   observe(
@@ -43,37 +44,29 @@ server_barCharts <- function(input, output, session, data, Var2show, how_many = 
   output$plt <- renderPlotly({
     df <- data_2tal_cases() %>%
       arrange(get(Var2show)) %>%
-      tail(how_many) %>%
+      tail(10) %>%
       mutate(Countries2 = factor(Countries, levels = Countries))
+    values_for_pie = as.list(df[[Var2show]])
+    labels_for_pie = as.list(df[['Countries']])
+    #list2env(list(df = df),.GlobalEnv)
     data_new() %>%
-      plot_ly(color = ~Countries, colors = "Paired", height = 1000) %>%
-      add_data(df) %>%
-      add_bars(x = formula(paste0("~", Var2show)), y = ~Countries2) %>%
-      layout(
-        xaxis = list(title = f_labels(Var2show)),
-        yaxis = list(title = "")
-      ) %>%
-      add_annotations(
-        text = formula(paste0("~", Var2show)),
-        y = ~ reorder(Countries, get(paste0("rank_", Var2show))), 
-        x = ~ I(get(Var2show) + 0.02 * max(get(Var2show))), showarrow = FALSE
-      ) %>%
-      add_annotations(
-        text = ~ max(ordered(DateRep)),
-        x = ~ I(max(get(Var2show)) * 9 / 10), 
-        y = ~ I(1), font = list(size = 25), bordercolor = "black", showarrow = FALSE
-      ) %>%
-      hide_legend() %>%
-      animation_opts(redraw = TRUE, mode = "afterall")
+      plot_ly( marker =list(color = ~Countries,colorscale = 'Accent')) %>%
+      add_pie(values = values_for_pie, labels = labels_for_pie, textinfo='label+percent',
+              insidetextorientation='radial', hole = 0.5) %>%
+      layout(#title = "Put some specific title here",  
+             showlegend = F,
+             xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
+             yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
+    
   })
 }
 
 ui <- fluidPage(
-  ui_barCharts("f_1")
+  ui_pieCharts("f_1")
 )
 server <- function(input, output) {
   data <- DataDownload()
   data2 <- compute_cum_ranks(data)
-  callModule(server_barCharts, "f_1", data2, "Cases")
+  callModule(server_pieCharts, "f_1", data2, "Cases")
 }
 shinyApp(ui, server)

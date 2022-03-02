@@ -8,8 +8,10 @@ library(shiny)
 library(sf)
 library(rgeos)
 library(shinycssloaders)
-grow1 <- function(x, k) ifelse(k == 1, return(x), return(c(x, 1.5 * grow1(x, k - 1))))
-grow2 <- function(x, k) ifelse(k == 1, return(x), return(c(x, 1.4 * grow2(x, k - 1))))
+
+grow1 <- function(x, k) ifelse(k == 1, return(x), return(c(x, 2.5* grow1(x, k - 1))))
+
+grow2 <- function(x, k) ifelse(k == 1, return(x), return(c(x, 3.0 * grow2(x, k - 1))))
 
 switch_labels <- function(x) {
   switch(x,
@@ -22,7 +24,8 @@ switch_labels <- function(x) {
 ui_leafMap <- function(id) {
   ns <- NS(id)
   tagList(
-    withSpinner(leafletOutput(ns("leafMap"), height = 900), type = 4)
+    withSpinner(leafletOutput(ns("leafMap"), height = 600), 
+                type = 6)
   )
 }
 
@@ -30,11 +33,12 @@ server_leafMap <- function(input, output, session, data, var2show = "case") {
   ns <- session$ns
   f_col <- function(x) {
     switch(x,
-      "case" = return("purple"),
-      "death" = return("black"),
+      "case" = return("blue"),
+      "death" = return("red"),
       "recovered" = return("green")
     )
   }
+  
   f_cat <- function(x, type = "case") {
     f1 <- function(x) {
       as.numeric(cut(x, c(-0.1, 1.1, grow1(10, 35)), labels = 0:35)) - 1
@@ -51,7 +55,7 @@ server_leafMap <- function(input, output, session, data, var2show = "case") {
     )
   }
 
-  world <- reactive(ne_countries(scale = "small", returnclass = "sf"))
+  world <- reactive(ne_countries(scale = "small", returnclass = "sp"))
 
   data3 <- reactive({
     leafMap_data(data, input$inp_slider)
@@ -62,7 +66,7 @@ server_leafMap <- function(input, output, session, data, var2show = "case") {
   xl <- 1
   LEAF <- reactive({
     world() %>%
-      leaflet(options = leafletOptions(minZoom = 2, maxZoom = 4)) %>%
+      leaflet(options = leafletOptions(minZoom = 1, maxZoom = 6)) %>%
       addTiles() %>%
       addControl(html = tagList(
         dropdownButton(
@@ -76,9 +80,6 @@ server_leafMap <- function(input, output, session, data, var2show = "case") {
           )
         )
       ), position = "topleft") %>%
-      addMarkers(lng = 55.0163, lat = 36.4062, label = "Shahrood University of Technology", labelOptions = labelOptions(textsize = "15px")) %>%
-      addMarkers(lng = 58.7911, lat = 36.2549, label = "University of Neyshabur", labelOptions = labelOptions(textsize = "15px")) %>%
-      addMarkers(lng = 28.231437, lat = -25.754056, label = "University of Pretoria", labelOptions = labelOptions(textsize = "15px")) %>%
       setView(lng = 0, lat = 0, zoom = 2)
   })
 
@@ -106,18 +107,20 @@ server_leafMap <- function(input, output, session, data, var2show = "case") {
 
         label = paste0(
           data3()$Countries, ":\n", "Confirmed: ",
-          data3()$cum_cases, ",\n", "Death: ", data3()$cum_death, ",\n", "Recovered: ",
+          data3()$cum_cases, ",\n", "Death: ", 
+          data3()$cum_death, ",\n", "Recovered: ",
           round(data3()$cum_recovered, 2)
         ),
 
         popup = paste0(
           data3()$Countries, ":\n", "Confirmed: ",
-          data3()$cum_cases, ",\n", "Death: ", data3()$cum_death, ",\n", "Recovered: ",
+          data3()$cum_cases, ",\n", "Death: ", 
+          data3()$cum_death, ",\n", "Recovered: ",
           round(data3()$cum_recovered, 2)
         ),
 
-        color = f_col(var2show), opacity = .6,
-        labelOptions = labelOptions(textsize = "20px")
+        color = f_col(var2show), opacity = .3,
+        labelOptions = labelOptions(textsize = "24px")
       ) %>%
       addControl(HTML(paste0(
         "<p style = 'color:orange;font-size:23px;font-weight:bold'> Date: ",

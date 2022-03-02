@@ -6,6 +6,7 @@ library(RColorBrewer)
 library(shinycssloaders)
 library(shinysky)
 library(shinyWidgets)
+
 f_labels <- function(x) {
   switch(x,
     "Cases" = return("New cases"),
@@ -36,7 +37,6 @@ ui_timeSeriesPlot <- function(id) {
     uiOutput(ns("pl"))
   )
 }
-
 
 server_timeSeriesPlot <- function(input, output, session, data, var2show, source = NULL, showLABEL = TRUE, n = NULL, showLog = FALSE) {
   if (is.null(n)) n <- 1

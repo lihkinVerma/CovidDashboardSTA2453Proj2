@@ -7,9 +7,10 @@ library(dplyr)
 library(maps)
 library(rworldmap)
 library(rworldxtra)
+
 leafMap_data <- function(data, date) {
   f_leaf_data <- function(data) {
-    wmap <- getMap(resolution = "low")
+    wmap <- getMap(resolution = "high")
     centroid <- rgeos::gCentroid(wmap, byid = TRUE)
     as.data.frame(centroid) -> world2
     world2 <- cbind(rownames(world2), world2)

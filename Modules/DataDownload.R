@@ -3,8 +3,10 @@ library(purrr)
 library(dplyr)
 library(stringr)
 library(readxl)
+
 DataDownload <- function() {
   data <- jsonlite::fromJSON("https://pomber.github.io/covid19/timeseries.json")
+  #data <- lapply(data, function(x) tail(x, 7))
   names(data) <- f_Country_wrangling(names(data))
 
 

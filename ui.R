@@ -13,11 +13,16 @@ source("Modules/CountryName_wrangling.R")
 source("Modules/DataDownload.R")
 source("Modules/Continent.R")
 source("Modules/MainBody_Page.R")
+source("Modules/OverviewBody_Page.R")
+source("Modules/RankBody_Page.R")
 source("Modules/compute_proportion.R")
 source("Modules/compute_cum_ranks.R")
 source("Modules/filter.R")
 source("Modules/barCharts.R")
+source("Modules/pieCharts.R")
 source("Modules/MainBody.R")
+source("Modules/RankBody.R")
+source("Modules/OverviewBody.R")
 source("Modules/Country_property.R")
 source("Modules/Logistic_Growth_Model_with_ggplot2.R")
 source("Modules/timeSeriesPlots.R")
@@ -39,7 +44,7 @@ ui <- dashboardPage(
   #------------------------------------------------------------
   # Dashboard header
   #------------------------------------------------------------
-  dashboardHeader(titleWidth = 210, 
+  dashboardHeader(titleWidth = 220, 
                   title = span(img(src = "SARS-CoV-2_without_background.png", 
                                    width = 50)), disable = FALSE),
   #------------------------------------------------------------
@@ -50,20 +55,34 @@ ui <- dashboardPage(
       width = 210,
       sidebarMenu(
         id = "tabs",
-        menuItem("Home Page", tabName = "homepage"),
-        menuItem("Our Team", tabName = "OurTeam"),
-        menuItem("Data Set", tabName = "table"),
+        menuItem("Home Page", tabName = "homepage", icon = icon("th")),
+        menuItem("Our Team", tabName = "OurTeam", icon = icon("fa-solid fa-user-plus")),
+        menuItem("Data Set", tabName = "table", icon = icon("table")),
+        menuItem("Quick Counts", tabName = "overview_page", icon = icon("fa-solid fa-briefcase-medical")),
         menuItem(
-          "Demographic",
-          menuItem("Overview", tabName = "mainPage_Over"),
+          "Rank countries",
+          icon = icon("fa-regular fa-globe"),
+          menuItem("Overview", tabName = "rankPage_Over"),
           menuItem(
-            "Bar Charts",
-            menuSubItem("Country", tabName = "mainPage_country"),
-            menuSubItem("Continent", tabName = "mainPage_continent")
+            "Case Type",
+            menuSubItem("Confirmed", tabName = "rankPage_confirmed", icon = icon("fa-regular fa-flag")),
+            menuSubItem("Deaths", tabName = "rankPage_deaths", icon = icon("fa-solid fa-flag")),
+            menuSubItem("Recovered", tabName = "rankPage_recovered", icon = icon("fa-duotone fa-flag"))
           )
         ),
         menuItem(
-          "Time Series Visualization",
+          "Rank continents",
+          icon = icon("fa-regular fa-globe"),
+          menuItem("Overview", tabName = "rankPage_Over_cont"),
+          menuItem(
+            "Case Type",
+            menuSubItem("Confirmed", tabName = "rankPage_confirmed_cont", icon = icon("fa-regular fa-flag")),
+            menuSubItem("Deaths", tabName = "rankPage_deaths_cont", icon = icon("fa-solid fa-flag")),
+            menuSubItem("Recovered", tabName = "rankPage_recovered_cont", icon = icon("fa-duotone fa-flag"))
+          )
+        ),
+        menuItem(
+          "Case count timelines", icon = icon("bars"),
           menuItem("Overview", tabName = "tim_over"),
           menuItem(
             "Time Series Plots",
@@ -72,21 +91,12 @@ ui <- dashboardPage(
           )
         ),
         menuItem(
-          "Dynamic growth models",
-          menuSubItem("Overview", tabName = "DGM_over"),
-          menuSubItem("Country", tabName = "reg_Country"),
-          menuSubItem("Continent", tabName = "reg_Continent")
-        ),
-        menuItem(
-          "Spatial Analysis",
+          "Map", icon = icon("map"),
           menuItem("Overview", tabName = "map_over"),
-          menuSubItem("Map", tabName = "map_ord_country"),
-          menuSubItem("Moran's Index", tabName = "moran")
+          menuSubItem("Map", tabName = "map_ord_country")
         ),
         br(),
-        br(),
-        hr(),
-        tags$span(style = "font-size:14px; align:right; color:yellow;align:top", textOutput("txtOnline"))
+        br()
       )
     )
   },
@@ -223,7 +233,7 @@ This app provides a dashboard based on COVID-19 data as collected by the WHO and
                If you need the whole data set, just press it without writing anything in the search bar (this action needs more time to be completed).  </div>
                </p>
                "),
-        withSpinner(DTOutput(outputId = "tblData"))
+        withSpinner(DTOutput(outputId = "tblData"), type = 6)
       ),
       tabItem(
         tabName = "mainPage_Over",
@@ -254,6 +264,40 @@ This app provides a dashboard based on COVID-19 data as collected by the WHO and
                count of recovered cases!
                </p>
                ")
+      ),
+      #------------------------------------------------------------
+      # Rank countries by case counts
+      #------------------------------------------------------------
+      tabItem(
+        tabName = "overview_page",
+        ui_overviewBody_Page("overview__page")
+      ),
+      tabItem(
+        tabName = "rankPage_confirmed",
+        ui_rankBody_Page("rankPage__confirmed", 'Cases')
+      ),
+      tabItem(
+        tabName = "rankPage_deaths",
+        ui_rankBody_Page("rankPage__deaths", 'Deaths')
+      ),
+      tabItem(
+        tabName = "rankPage_recovered",
+        ui_rankBody_Page("rankPage__recovered", 'Recovered')
+      ),
+      #------------------------------------------------------------
+      # Rank continents by case counts
+      #------------------------------------------------------------
+      tabItem(
+        tabName = "rankPage_confirmed_cont",
+        ui_rankBody_Page("rankPage__confirmed__cont", 'Cases', TRUE)
+      ),
+      tabItem(
+        tabName = "rankPage_deaths_cont",
+        ui_rankBody_Page("rankPage__deaths__cont", 'Deaths', TRUE)
+      ),
+      tabItem(
+        tabName = "rankPage_recovered_cont",
+        ui_rankBody_Page("rankPage__recovered__cont", 'Recovered', TRUE)
       ),
       #------------------------------------------------------------
       # Per country pages
@@ -407,4 +451,5 @@ The generalized logistic curve is commonly used for dynamic modeling in many bra
 #------------------------------------------------------------
 # refernces: 1. https://www.frontiersin.org/articles/10.3389/fpubh.2020.623624/full
 #            2. https://pomber.github.io/covid19/timeseries.json
+#            3. https://art-bd.shinyapps.io/covid19canada/
 #------------------------------------------------------------

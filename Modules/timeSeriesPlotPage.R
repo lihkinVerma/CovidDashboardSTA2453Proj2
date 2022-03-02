@@ -1,3 +1,4 @@
+
 ui_timeSeriesPlotPage_Ordinary <- function(id) {
   ns <- NS(id)
   tagList(
@@ -176,6 +177,7 @@ server_timPage <- function(input, output, session, data) {
   callModule(server_timeSeriesPlotPage_Ordinary, "Ordinary", data)
   callModule(server_timeSeriesPlotPage_Proportion, "Proportion", data)
 }
+
 ui <- dashboardPage(header = dashboardHeader(), sidebar = dashboardSidebar(), dashboardBody(
   ui_timPage("f_1")
 ))

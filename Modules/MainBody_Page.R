@@ -1,3 +1,5 @@
+
+
 ui_mainBody_Page <- function(id) {
   ns <- NS(id)
   tagList(
@@ -12,6 +14,7 @@ ui_mainBody_Page <- function(id) {
     )
   )
 }
+
 server_mainBody_Page <- function(input, output, session, data) {
   data2 <- compute_cum_ranks(data)
   data_prop <- compute_proportion(data, pop = data$Population, n = 1e6)
