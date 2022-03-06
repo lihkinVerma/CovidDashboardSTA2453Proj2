@@ -35,8 +35,6 @@ server <- function(input, output) {
       "rankPage_confirmed_cont" = callModule(server_rankBody_Page, "rankPage__confirmed__cont", data_cont, 'Cases', TRUE),
       "rankPage_deaths_cont" = callModule(server_rankBody_Page, "rankPage__deaths__cont", data_cont, 'Deaths', TRUE),
       "rankPage_recovered_cont" = callModule(server_rankBody_Page, "rankPage__recovered__cont", data_cont, 'Recovered', TRUE),
-      "reg_Country" = callModule(server_regression, "RegCountry", data),
-      "reg_Continent" = callModule(server_regression, "RegContinent", data_cont),
       "tim_Country" = callModule(server_timPage, "tim_CountryPage", data),
       "tim_Continent" = callModule(server_timPage, "tim_ContinentPage", data_cont),
       "map_ord_country" = callModule(server_leafMap_Page, "Ordinary_map", data),

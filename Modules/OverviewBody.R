@@ -3,6 +3,7 @@ library(shinydashboard)
 library(shinyWidgets)
 library(plotly)
 library(plotlyGeoAssets)
+library(dplyr)
 
 ui_overviewBody <- function(id, ProportionShow = TRUE) {
   ns <- NS(id)

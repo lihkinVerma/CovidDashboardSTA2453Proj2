@@ -1,6 +1,7 @@
 library(shiny)
 library(plotly)
 library(dplyr)
+library(shinycssloaders)
 f_labels <- function(x) {
   switch(x,
     "Cases" = return("New cases"),
@@ -21,7 +22,7 @@ ui_barCharts <- function(id) {
 }
 
 server_barCharts <- function(input, output, session, data, Var2show, how_many = 10) {
-  print(Var2show)
+  # print(Var2show)
   ns <- session$ns
   observe(
     updateSliderInput(

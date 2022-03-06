@@ -1,6 +1,7 @@
 library(shiny)
 library(plotly)
 library(dplyr)
+library(shinycssloaders)
 
 f_labels <- function(x) {
   switch(x,
@@ -22,7 +23,7 @@ ui_pieCharts <- function(id) {
 }
 
 server_pieCharts <- function(input, output, session, data, Var2show) {
-  print(Var2show)
+  #print(Var2show)
   ns <- session$ns
   observe(
     updateSliderInput(
