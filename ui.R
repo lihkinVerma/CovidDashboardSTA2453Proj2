@@ -115,56 +115,45 @@ ui <- dashboardPage(
           width = 12,
 
           HTML(
-            "<center><h1 style = 'color:red;font-weight: bold;font-size: 40px'>COVID-19 Dashboard</h1></center>"
-          ), hr(),
-
-          HTML("
-                 <p style = 'font-size:15px;font-weight:bold'>
-                 Welcome to our COVID-19 dashboard. We hope you will find it informative and useful!
-                 <br>
-                 The goal of this web-based app is to give you the ability to play around with some of the data related to the COVID-19 pandemic currently sweeping the globe.
-                 </p>
-                  <p>
-                   <span style= 'font-weight:bold;font-size:18px'>
-                            <div style= 'font-size: 16px;color:green;font-weight:bold'>  What exactly does this app do? </div>
-                            </span>
-                   </p>
-                 <p style = 'font-size:15px;font-weight:bold'>
-This app provides a dashboard based on COVID-19 data as collected by the WHO and the CDC in the US.
-                          It has similar features as other such dashboards; to visualise the massive amounts of data that is 
-                          mostly being recorded in real time (at least daily). The power of this app is two-fold: producing downloadable plots
-                          of COVID-19 counts (infected, recovered, deceased) which the user can sort by country/continent; but also in an 
-                        interactive setting, where users can shiftdays since first infection etc. on a scale and see how the data changed over time.<br><hr>
-                    <a style = 'font-size:16px;color:red;font-weight:bold'> New features added:</a><br>
-                    <a style = 'font-size:16px;color:purple;font-weight:bold'>
-                    - Gompertz growth model<br>
-                    - Logistic growth model<br>
-                    - Global Moran's Index<br>
-                    - Downloading the associated data of a country
-                    </a>
-                      <p>
-                 "), br(),
-          HTML("
-            <p style = 'font-size:15px;font-weight:bold'>
-                 To empower yourself with more information regarding
-                 COVID-19, and the important role that the WHO is playing
-                 in this pandemic, consider subscribing and completing
-                 this free online course from the London School of Hygiene
-                 and Tropical Medicine: <a href = https://www.futurelearn.com/courses/covid19-novel-coronavirus>https://www.futurelearn.com/courses/covid19-novel-coronavirus
-                 </a></p>"),
-          HTML("
-            <p style = 'font-size:15px;font-weight:bold'> 
-    <div style= 'font-size: 14px;color:green;font-weight:bold'> Please only view this page in conjunction with 
-  <a href = https://sacoronavirus.co.za/>https://sacoronavirus.co.za/</a> </div>
-      <div style= 'font-size: 14px;color:green;font-weight:bold'> Contact us:  <a href = 'mailto: symstat@up.ac.za' > symstat@up.ac.za </a> </div>
-            <p>"),
+            "<center>
+              <h1 style = 'color:midnightblue;font-weight: bold;font-size: 40px'>COVID-19 Dashboard</h1>
+            </center>"
+          ), 
+          
+          
           
           HTML("
-        <p class='twitter-tweet' data-lang='en'><p lang='en' dir='ltr' style = 'font-size:15px;font-weight:bold'>
-        <div style= 'font-size: 14px;color:green;font-weight:bold'> Twitter page: 
-            <a>https://twitter.com/nicd_sa</a> </div>
-        </p> <br>
-      "),
+                 <p style = 'font-size:15px;font-weight:bold'>
+                 Welcome to the COVID-19 Dashboard! 
+                 
+                 The goal of this dashboard is to monitor the spread of COVID-19 all over the world and visualize the key metrics related to COVID-19,
+                 such as Number of Confirmed Cases and Number of Death Cases. <hr>
+                 </p>
+                 <p>
+                 <span style= 'font-weight:bold;font-size:18px'>
+                 <div style= 'font-size: 16px;color:midnightblue;font-weight:bold'> Who: </div>
+                 This dashboard is built for a large group of audience and there is no restriction on audience's background.
+                 The target audience includes but not limited to researchers, students, and front-line workers.
+                 <hr>
+                 <div style= 'font-size: 16px;color:midnightblue;font-weight:bold'> What: </div>
+                 This dashboard showcases information about the data source and key metrics to monitor the spread of COVID-19. Main features are the followings: <br>
+                 Counts of Confirmed Cases, Death Cases, Recovered Cases <br>
+                 Ranks in Confirmed Cases, Death Cases, Recovered Cases <br>
+                 Time series plot of Confirmed Cases, Death Cases, Recovered Cases <br>
+                 Global map with Confirmed Cases, Death Cases, Recovered Cases visualized by circles <br>
+                 <hr>
+                 
+                 <div style= 'font-size: 16px;color:midnightblue;font-weight:bold'> Why: </div>
+                 With a large amount of data related to COVID-19 available, it is crucial to understand the trends and metric information about the spread of COVID-19. 
+                 Dashboard, as a tool for data visualization, is a web application that ingest data on daily basis and provide updated metric information automatically.
+                 With the goal of better reporting and story-telling on COVID-19 data, we build this dashboard to gain insights on the current situation of COVID-19
+                 and facilitate with governmental and public health decisions.
+                 <hr>
+                 </span>
+                 </p>
+                 
+                 "), br(),
+          
         ),
         fluidRow(
           column(width = 1),
