@@ -5,7 +5,7 @@ account: yangqu
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 5800816
-bundleId: 5654348
+bundleId: 5654585
 url: https://yangqu.shinyapps.io/coviddashboardsta2453proj2/
-when: 1646697760.34571
-lastSyncTime: 1646697760.34573
+when: 1646703331.77327
+lastSyncTime: 1646703331.77328

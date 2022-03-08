@@ -252,7 +252,13 @@ ui <- dashboardPage(
       #------------------------------------------------------------
       tabItem(
         tabName = "overview_page",
-        ui_overviewBody_Page("overview__page")
+        ui_overviewBody_Page("overview__page"),
+      ),
+      tabItem(
+        tabName = "rankPage_Over",
+        HTML(
+          "<center><h1 style = 'color:midnightblue;font-weight: bold;font-size: 40px'>Rank Countires</h1></center>"
+        )
       ),
       tabItem(
         tabName = "rankPage_confirmed",
@@ -269,6 +275,12 @@ ui <- dashboardPage(
       #------------------------------------------------------------
       # Rank continents by case counts
       #------------------------------------------------------------
+      tabItem(
+        tabName = "rankPage_Over_cont",
+        HTML(
+          "<center><h1 style = 'color:midnightblue;font-weight: bold;font-size: 40px'>Rank Continents</h1></center>"
+        )
+      ),
       tabItem(
         tabName = "rankPage_confirmed_cont",
         ui_rankBody_Page("rankPage__confirmed__cont", 'Cases', TRUE)
@@ -290,8 +302,10 @@ ui <- dashboardPage(
       ),
       tabItem(
         tabName = "tim_over",
+        HTML(
+          "<center><h1 style = 'color:midnightblue;font-weight: bold;font-size: 40px'>Cases Count Timelines</h1></center>"
+        ),
         HTML("
-          <h1 style= 'font-size: 28px;color:green;font-weight:bold'> Time Series Analysis </h1> <br>
                <p style = 'font-size:15px;font-weight:bold'> 
                Here we present plots of the different counts over time (commonly called a time series plot).
                You can choose between \"Absolute counts\" and \"Relative counts\".
@@ -328,45 +342,9 @@ ui <- dashboardPage(
       ),
       tabItem(
         tabName = "map_over",
-        HTML("
-          <h1 style= 'font-size: 28px;color:green;font-weight:bold'> Spatial Analysis </h1> <br>
-               <p style = 'font-size:15px;font-weight:bold'> Here we present a spatial map indicating counts of confirmed cases and death cases.
-               You can choose between \"Absolute counts\" and \"Relative counts\".
-                 <br><br>
-               <a style= 'font-size: 16px;color:green;font-weight:bold'> What is the difference? </a>
-               Absolute counts represent the actual counted number of cases (confirmed,
-               deaths, recoveries) for each region/country. Relative counts places the absolute
-               counts in context with regards to the population size of that region
-               (per 1 million residents). For example, if a region/country A has a population 
-               of 60 million people and 3000 infected cases, then it has (on a relative scale) 
-               50 infected cases per 1 million people. <br><br>
-               </p>
-               <p style= 'font-size: 15px;color:black;font-weight:bold'>
-               <br><br>
-               <a style= 'font-size: 16px;color:green;font-weight:bold'> Moran's Index:  </a>
-               The Moran's index, originally defined by Moran, P. A. (1950), is a measure of spatial association or spatial autocorrelation which can be used to find spatial hotspots or clusters and is available in many software applications.  This index has been defined as the measure of choice for scientists, specifically in environmental sciences, ecology and public health.
-               Moran's Index has a local and global representation.  The global Moran's I is a global measure for spatial autocorrelation while the local Moran's I index examines the individual locations, enabling hotspots to be identified based on comparisons to the neighbouring samples. 
-               The Moran index I takes value on [-1,1] and I=0 shows no spatial correlation between
-               the sub-regions for the underlying feature. According to  Gittleman and Kot (1990), there are two ways to identify the weights; 
-               by adjacency approach and geographical distance method.<br><br>
-               <a style= 'font-size: 16px;color:green;font-weight:bold'> How to interpret the outputs?:  </a>
-               In this module, we compute the global Moran's index and test its significance for countries of a given continent based on daily confirmed cases.   
-               Both weight matrices mentioned above are employed for this purpose. 
-               The null hypothesis of the mentioned two-sided test indicates that there is no significance spatially correlation between the countries, while the alternative hypothesis indicates a significant autocorrelation. 
-               Hence, if the corresponding p-value of a test is less than 0.05 (the horizontal dashed line of the first graph), then we have a significant spatial correlation for the countries of that continent, otherwise, there is no strong evidence for making such a decision.
-               More precisely, based on the second graph, if the observed value of Moran's Index is significantly greater than the expected value, then the regions
-               are positively autocorrelated, whereas if observed << expected, this will indicate negative autocorrelation. 
-               In order to see and download the corresponding outputs in detail, you can see the 'Data table' tab.
-               <br><br>
-               <a style= 'font-size: 16px;color:green;font-weight:bold'> Note: </a>
-               In the method using the geographical distance matrix, there is a parameter called 'distance threshold'. 
-              Here we have set it to be the sample median of all distances between every two countries of a given continent.
-               There is also a possibility to change it to other percentiles as well.<br><br>
-               <a style= 'font-size: 16px;color:green;font-weight:bold'> References:</a><br>
-               [1] Gittleman JL, Kot M (1990) Adaptation: statistics and a null model for estimating phylogenetic effects, Systematic Zoology 39:227-241.<br>
-               [2] Moran, P. A. (1950). Notes on continuous stochastic phenomena. Biometrika, 37(1/2), 17-23.<br>               
-               </p>
-               ")
+        HTML(
+          "<center><h1 style = 'color:midnightblue;font-weight: bold;font-size: 40px'>Map</h1></center>"
+        )
       ),
       tabItem(
         tabName = "map_ord_country",
