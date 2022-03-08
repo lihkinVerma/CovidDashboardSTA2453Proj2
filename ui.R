@@ -173,53 +173,46 @@ ui <- dashboardPage(
         tabName = "OurTeam",
 
         HTML(
-          "<center><h1 style = 'color:red;font-weight: bold;font-size: 40px'>COVID-19 Dashboard</h1></center>"
+          "<center><h1 style = 'color:midnightblue;font-weight: bold;font-size: 40px'>Our Team</h1></center>"
         ), hr(),
         HTML("
                       <p style = 'font-size:15px;font-weight:bold'>
-            The World Health Organisation\'s focus at all times is to ensure that all
-            areas of the globe have the information they need to manage the health
-            of their people due to the ongoing COVID-19 pandemic. Here, 
-            in this statistical data analytics dashboard, we provide the public
-            users with the latest demographic information and aim to
-            track this disease trends in terms of number of infections, death,
-            and recoveries. This R-shiny app will assist in addressing this Big
-            Data issue and stimulate the level of public awareness about COVID-19.
+            We are a team of two MScAC (Master of Science in Applied Computing) students from University of Toronto. 
+            This dashboard also serves as a project required by STA2453: Data Science Methods, Collaboration, and Communication.
             </p>
                "),
-        HTML("<h3 style = 'color:green; font-weight:bold;font-size: 22px'>Our Team: </h3>"), br(),
-        HTML("<div style = 'font-size: 14.5px;color:black;font-weight:bold'>  <a style = 'font-size: 16px;color:blue;font-weight:bold'; href = http://salehi.neyshabur.ac.ir/math/salehi/ > Mahdi Salehi </a>: Department of Mathematics and Statistics, Faculty of Basic Sciences - University of Neyshabur, Iran  <a style = 'font-size: 14.5px;color:blue;font-weight:bold'; href = 'mailto: salehi2sms@gmail.com'> (principal developer) </a></div>"),
-        br(),
-        HTML("<div style = 'font-size: 14.5px;color:black;font-weight:bold'>  <a style = 'font-size: 16px;color:blue;font-weight:bold'> Foad Esmaeili</a>: Department of Mathematics and Statistics, Faculty of Basic Sciences - University of Neyshabur, Iran </div>"),
-        br(),
-        HTML("<div style = 'font-size: 14.5px;color:black;font-weight:bold'>  <a style = 'font-size: 16px;color:blue;font-weight:bold'; href = https://www.up.ac.za/statistics/article/2320366/prof-andritte-bekker> Andriette Bekker</a>: Department of Statistics, Faculty of Natural and Agricultural Sciences  - University of Pretoria, South Africa </div>"),
-        br(),
-        HTML("<div style = 'font-size: 14.5px;color:black;font-weight:bold'>  <a style = 'font-size: 16px;color:blue;font-weight:bold'; href = https://scholar.google.com/citations?user=iBIh60UAAAAJ&hl=en> Mohammad Arashi </a>:  </a color:black; href = orcid.org/0000-0002-5881-9241 > Department of Statistics, Faculty of Mathematical Sciences - Shahrood University of Technology, Iran </a> </div>"),
+        
+        HTML("<div style = 'font-size: 14.5px;color:black;font-weight:bold'> 
+             <a style = 'font-size: 16px;color:midnightblue;font-weight:bold'> 
+             Nikhil Verma </a>: 
+             Department of Computer Science - University of Toronto, Canada </div>"),
         br(),
         HTML("<div style = 'font-size: 14.5px;color:black;font-weight:bold'> 
-             <a style = 'font-size: 16px;color:blue;font-weight:bold'; 
-             href = https://www.up.ac.za/statistics/article/2324000/mr-johan-ferreira> Johan Ferreira</a>: Department of Statistics, Faculty of Natural and Agricultural Sciences  - University of Pretoria, South Africa </div>"),
+             <a style = 'font-size: 16px;color:midnightblue;font-weight:bold'> 
+             Yang Qu </a>: 
+             Department of Computer Science - University of Toronto, Canada </div>"),
         br(),
-        HTML("<div style = 'font-size: 14.5px;color:black;font-weight:bold'>  <a style = 'font-size: 16px;color:blue;font-weight:bold'> Frances Motala </a>: Department of Statistics, Faculty of Natural and Agricultural Sciences - University of Pretoria, South Africa </div> <br> <br>
-                               <div style= 'font-size: 15px;color:green;font-weight:bold'> Contact us:  <a  style = 'font-size: 15px;color:blue;font-weight:bold' href =
-             'mailto: symstat@up.ac.za' > symstat@up.ac.za </a> </div>"),
-        br(),
-        HTML("<div style = 'color:green'> Code:</div> Codes used to generate this Shiny dashboard are available on  <a style = 
-        'color:blue'; href = https://github.com/Mahdi-Salehi-PhD/COVID-19-dashboard> Github")
+        HTML("<div style = 'color:midnightblue'> Code:</div> Codes are available on  <a style = 
+        'color:midnightblue'; href = https://github.com/lihkinVerma/CovidDashboardSTA2453Proj2/tree/main> Github")
       ),
       tabItem(
         tabName = "table",
+        HTML(
+          "<center><h1 style = 'color:midnightblue;font-weight: bold;font-size: 40px'>Data Set</h1></center>"
+        ), hr(),
         HTML("
-               <p style='color:green;font-size:15px; font-weight:bold'>
-               The data is obtained from the online repository GitHub 
-               (<a href = https://pomber.github.io/covid19/timeseries.json>
-               https://pomber.github.io/covid19/timeseries.json</a>). It is captured per country per day, which results in a large dataframe. This data source includes information since at least the announcement of the PHEIC/pandemic by the WHO up to the past 24 hours (excluding today). It is automatically updated as data becomes available as 
-               reported by various international- and country authorities. Moreover, the population data made available from 
-               <a href = https://www.worldometers.info/world-population/population-by-country/>
-               www.worldometers.info</a>
-               <div style='color:green;font-size:15px; font-weight:bold'> You can use the \"search bar\" to type in a country of interest\'s name to obtain raw data by date for that specific country. Similarly, by typing a specific date of the form 'yyyy-mm-dd' you can achieve the associated data. 
-               After selecting a sub-data by this manner, you can press the 'CSV' button to have that portion in your own computer. 
-               If you need the whole data set, just press it without writing anything in the search bar (this action needs more time to be completed).  </div>
+               <p style='color:black;font-size:15px'>
+               The data used in this dashboard is from the public Github repository (<a href = https://pomber.github.io/covid19/timeseries.json>
+               https://pomber.github.io/covid19/timeseries.json</a>). It includes information (shown below) from 2020-01-22 up to the past 24 hours (excluding today) per country per day. As international and government authorities report new data on a daily basis and more data are available, this dataset is automatically updated to the latest one. Population data per country is available on <a href = https://www.worldometers.info/world-population/population-by-country/>
+               www.worldometers.info</a>.
+               
+               <div style='color:black;font-size:15px'> 
+               Below is an overview of the entire dataset. Noted that it is a large dataset, it may take a few seconds to load. 
+               To save a copy to your local machine, you can press the 'CSV' button to download the entire up-to-date dataset. 
+               You can also filter the dataset by country or by date: <br>
+
+               To filter the dataset by county: enter the country's name in the search bar <br>
+               To filter the dataset by date: enter the date in the format of 'yyyy-mm-dd' in the search bar.  </div>
                </p>
                "),
         withSpinner(DTOutput(outputId = "tblData"), type = 6)
