@@ -113,7 +113,7 @@ ui <- dashboardPage(
         tags$img(src = "techcoronav.gif", style = "position: absolute; opacity: 0.2"),
         column(
           width = 12,
-
+          
           HTML(
             "<center>
               <h1 style = 'color:midnightblue;font-weight: bold;font-size: 40px'>COVID-19 Dashboard</h1>
@@ -171,55 +171,47 @@ ui <- dashboardPage(
       ),
       tabItem(
         tabName = "OurTeam",
-
+        
         HTML(
-          "<center><h1 style = 'color:red;font-weight: bold;font-size: 40px'>COVID-19 Dashboard</h1></center>"
+          "<center><h1 style = 'color:midnightblue;font-weight: bold;font-size: 40px'>Our Team</h1></center>"
         ), hr(),
         HTML("
                       <p style = 'font-size:15px;font-weight:bold'>
-            The World Health Organisation\'s focus at all times is to ensure that all
-            areas of the globe have the information they need to manage the health
-            of their people due to the ongoing COVID-19 pandemic. Here, 
-            in this statistical data analytics dashboard, we provide the public
-            users with the latest demographic information and aim to
-            track this disease trends in terms of number of infections, death,
-            and recoveries. This R-shiny app will assist in addressing this Big
-            Data issue and stimulate the level of public awareness about COVID-19.
+            We are a team of two MScAC (Master of Science in Applied Computing) students from University of Toronto. 
+            This dashboard also serves as a project required by STA2453: Data Science Methods, Collaboration, and Communication.
             </p>
                "),
-        HTML("<h3 style = 'color:green; font-weight:bold;font-size: 22px'>Our Team: </h3>"), br(),
-        HTML("<div style = 'font-size: 14.5px;color:black;font-weight:bold'>  <a style = 'font-size: 16px;color:blue;font-weight:bold'; href = http://salehi.neyshabur.ac.ir/math/salehi/ > Mahdi Salehi </a>: Department of Mathematics and Statistics, Faculty of Basic Sciences - University of Neyshabur, Iran  <a style = 'font-size: 14.5px;color:blue;font-weight:bold'; href = 'mailto: salehi2sms@gmail.com'> (principal developer) </a></div>"),
-        br(),
-        HTML("<div style = 'font-size: 14.5px;color:black;font-weight:bold'>  <a style = 'font-size: 16px;color:blue;font-weight:bold'> Foad Esmaeili</a>: Department of Mathematics and Statistics, Faculty of Basic Sciences - University of Neyshabur, Iran </div>"),
-        br(),
-        HTML("<div style = 'font-size: 14.5px;color:black;font-weight:bold'>  <a style = 'font-size: 16px;color:blue;font-weight:bold'; href = https://www.up.ac.za/statistics/article/2320366/prof-andritte-bekker> Andriette Bekker</a>: Department of Statistics, Faculty of Natural and Agricultural Sciences  - University of Pretoria, South Africa </div>"),
-        br(),
-        HTML("<div style = 'font-size: 14.5px;color:black;font-weight:bold'>  <a style = 'font-size: 16px;color:blue;font-weight:bold'; href = https://scholar.google.com/citations?user=iBIh60UAAAAJ&hl=en> Mohammad Arashi </a>:  </a color:black; href = orcid.org/0000-0002-5881-9241 > Department of Statistics, Faculty of Mathematical Sciences - Shahrood University of Technology, Iran </a> </div>"),
+        
+        HTML("<div style = 'font-size: 14.5px;color:black;font-weight:bold'> 
+             <a style = 'font-size: 16px;color:midnightblue;font-weight:bold'> 
+             Nikhil Verma </a>: 
+             Department of Computer Science - University of Toronto, Canada </div>"),
         br(),
         HTML("<div style = 'font-size: 14.5px;color:black;font-weight:bold'> 
-             <a style = 'font-size: 16px;color:blue;font-weight:bold'; 
-             href = https://www.up.ac.za/statistics/article/2324000/mr-johan-ferreira> Johan Ferreira</a>: Department of Statistics, Faculty of Natural and Agricultural Sciences  - University of Pretoria, South Africa </div>"),
+             <a style = 'font-size: 16px;color:midnightblue;font-weight:bold'> 
+             Yang Qu </a>: 
+             Department of Computer Science - University of Toronto, Canada </div>"),
         br(),
-        HTML("<div style = 'font-size: 14.5px;color:black;font-weight:bold'>  <a style = 'font-size: 16px;color:blue;font-weight:bold'> Frances Motala </a>: Department of Statistics, Faculty of Natural and Agricultural Sciences - University of Pretoria, South Africa </div> <br> <br>
-                               <div style= 'font-size: 15px;color:green;font-weight:bold'> Contact us:  <a  style = 'font-size: 15px;color:blue;font-weight:bold' href =
-             'mailto: symstat@up.ac.za' > symstat@up.ac.za </a> </div>"),
-        br(),
-        HTML("<div style = 'color:green'> Code:</div> Codes used to generate this Shiny dashboard are available on  <a style = 
-        'color:blue'; href = https://github.com/Mahdi-Salehi-PhD/COVID-19-dashboard> Github")
+        HTML("<div style = 'color:midnightblue'> Code:</div> Codes are available on  <a style = 
+        'color:midnightblue'; href = https://github.com/lihkinVerma/CovidDashboardSTA2453Proj2/tree/main> Github </a>")
       ),
       tabItem(
         tabName = "table",
+        HTML(
+          "<center><h1 style = 'color:midnightblue;font-weight: bold;font-size: 40px'>Data Set</h1></center>"
+        ), hr(),
         HTML("
-               <p style='color:green;font-size:15px; font-weight:bold'>
-               The data is obtained from the online repository GitHub 
-               (<a href = https://pomber.github.io/covid19/timeseries.json>
-               https://pomber.github.io/covid19/timeseries.json</a>). It is captured per country per day, which results in a large dataframe. This data source includes information since at least the announcement of the PHEIC/pandemic by the WHO up to the past 24 hours (excluding today). It is automatically updated as data becomes available as 
-               reported by various international- and country authorities. Moreover, the population data made available from 
-               <a href = https://www.worldometers.info/world-population/population-by-country/>
-               www.worldometers.info</a>
-               <div style='color:green;font-size:15px; font-weight:bold'> You can use the \"search bar\" to type in a country of interest\'s name to obtain raw data by date for that specific country. Similarly, by typing a specific date of the form 'yyyy-mm-dd' you can achieve the associated data. 
-               After selecting a sub-data by this manner, you can press the 'CSV' button to have that portion in your own computer. 
-               If you need the whole data set, just press it without writing anything in the search bar (this action needs more time to be completed).  </div>
+               <p style='color:black;font-size:15px'>
+               The data used in this dashboard is from the public Github repository (<a href = https://pomber.github.io/covid19/timeseries.json>
+               https://pomber.github.io/covid19/timeseries.json</a>). It includes information (shown below) from 2020-01-22 up to the past 24 hours (excluding today) per country per day. As international and government authorities report new data on a daily basis and more data are available, this dataset is automatically updated to the latest one. Population data per country is available on <a href = https://www.worldometers.info/world-population/population-by-country/>
+               www.worldometers.info</a>.
+               
+               <div style='color:black;font-size:15px'> 
+               Below is an overview of the entire dataset. Noted that it is a large dataset, it may take a few seconds to load. 
+               To save a copy to your local machine, you can press the 'CSV' button to download the entire up-to-date dataset. 
+               You can also filter the dataset by country or by date: <br> <br>
+               To filter the dataset by county: enter the country's name in the search bar. <br> <br>
+               To filter the dataset by date: enter the date in the format of 'yyyy-mm-dd' in the search bar.  </div>
                </p>
                "),
         withSpinner(DTOutput(outputId = "tblData"), type = 6)
@@ -259,7 +251,27 @@ ui <- dashboardPage(
       #------------------------------------------------------------
       tabItem(
         tabName = "overview_page",
-        ui_overviewBody_Page("overview__page")
+        ui_overviewBody_Page("overview__page"),
+      ),
+      tabItem(
+        tabName = "rankPage_Over",
+        HTML(
+          "<center><h1 style = 'color:midnightblue;font-weight: bold;font-size: 40px'>Rank Countires</h1></center>"
+        ), hr(),
+        HTML("
+                 <p style = 'font-size:15px;font-weight:bold'>
+                 In this section, we show the rank of countries based on number of confirmed cases, number of death cases,
+                 and number of recovered cases. <br> <br>
+                 
+                 <div style= 'font-size: 16px;color:midnightblue;font-weight:bold'> Options: </div>
+                 
+                 To view the rank based on specific case type, you can go to the left sidebar and select the case type. <br> <br>
+                 To view the rank within a time period, you can drag the timeline bar at the top of the dashboard to set the start date and end date. <br> <br>
+                 To compare the absolute number of cases in each country, you can select \"bar chart\". <br> <br>
+                 To compare the proportion of number of cases in each country, select \"pie chart\".
+                 <hr>
+                 </p>
+                 "), br(),
       ),
       tabItem(
         tabName = "rankPage_confirmed",
@@ -276,6 +288,26 @@ ui <- dashboardPage(
       #------------------------------------------------------------
       # Rank continents by case counts
       #------------------------------------------------------------
+      tabItem(
+        tabName = "rankPage_Over_cont",
+        HTML(
+          "<center><h1 style = 'color:midnightblue;font-weight: bold;font-size: 40px'>Rank Continents</h1></center>"
+        ), hr(),
+        HTML("
+                 <p style = 'font-size:15px;font-weight:bold'>
+                 In this section, we show the rank of ontinents based on number of confirmed cases, number of death cases,
+                 and number of recovered cases. <br> <br>
+                 
+                 <div style= 'font-size: 16px;color:midnightblue;font-weight:bold'> Options: </div>
+                 
+                 To view the rank based on specific case type, go to the left sidebar and select the case type. <br> <br>
+                 To view the rank within a time period, drag the timeline bar at the top of the dashboard to set the start date and end date. <br> <br>
+                 To compare the absolute number of cases in each country, select \"bar chart\". <br> <br>
+                 To compare the proportion of number of cases in each country, select \"pie chart\".
+                 <hr>
+                 </p>
+                 "), br(),
+      ),
       tabItem(
         tabName = "rankPage_confirmed_cont",
         ui_rankBody_Page("rankPage__confirmed__cont", 'Cases', TRUE)
@@ -297,37 +329,26 @@ ui <- dashboardPage(
       ),
       tabItem(
         tabName = "tim_over",
+        HTML(
+          "<center><h1 style = 'color:midnightblue;font-weight: bold;font-size: 40px'>Cases Count Timelines</h1></center>"
+        ),hr(),
         HTML("
-          <h1 style= 'font-size: 28px;color:green;font-weight:bold'> Time Series Analysis </h1> <br>
-               <p style = 'font-size:15px;font-weight:bold'> 
-               Here we present plots of the different counts over time (commonly called a time series plot).
-               You can choose between \"Absolute counts\" and \"Relative counts\".
-                 <br><br>
-               <a style= 'font-size: 16px;color:green;font-weight:bold'> What is the difference? </a>
-               Absolute counts represent the actual counted number of cases (confirmed, deaths, recoveries)
-               for each region/country. Relative counts places the absolute counts in context with regards to
-               the population size of that region (per 1 million residents). For example,
-               if a region/country A has a population of 60 million people and 3000 infected cases,
-               then it has (on a relative scale) 50 infected cases per 1 million people. <br><br>
-               
-               On the cumulative scale, you can choose it to display the data using a 
-               <a style= 'font-size: 16px;color:black;font-weight:bold'> logarithmic</a>
-               scale as well.<br><br>
-               
-               This changes the y-axis (vertical axis) to 
-               <a style= 'font-size: 16px;color:black;font-weight:bold'> display</a>
-               the data differently. On the usual scale (non-logarithmic), numbers are equal distances apart - 10, 20, 30, and so on. On a logarithmic scale, numbers 10, 100, 1000 and so on, are equal distances apart. This type of adjustment to how the data are displayed is often employed when a curve grows exponentially - it prevents the graph from getting too big too soon.<br><br>
-               <a style= 'font-size: 16px;color:green;font-weight:bold'> Note:</a>  
-               Please be mindful that the cumulative count of confirmed cases
-               <a style= 'font-size: 16px;color:black;font-weight:bold'> includes </a>
-               recovered cases! <br><br>
-               <a style= 'font-size: 16px;color:green;font-weight:bold'> Prediction of the future of the pandemic:</a>  
-               In this menu, we have also provided a shortcut for fitting some dynamic growth models
-               on the absolute cumulative counts of the confirmed cases in the following address <br>
-               <a style= 'font-size: 15px;color:blue;font-weight:bold;text-align:center;'> Absolute counts > Confirmed > Cumulative > Prediction of the future.</a><br><br>
-               To see more details on the dynamic growth models employed in this dashboard,
-                refer to the 'Dynamic growth models' main menu and its overview.
-             "),
+                 <p style = 'font-size:15px;font-weight:bold'>
+                 In this section, we show the time series plot of number of confirmed cases, number of death cases, and number of recovered cases. <br> <br>
+                 
+                 <div style= 'font-size: 16px;color:midnightblue;font-weight:bold'> Options: </div>
+
+                 To view the time series plot of specific type of cases, select the interested type of cases on the left sidebar. <br> <br>
+                 
+                 To view the absolute value of number of cases, select the \"Absolute counts\" on top of the page. <br> <br>
+                 
+                 To view the relative value of number of cases, where the number of counts is relative to the country's population size in unit of 1 million residents, 
+                 select the \"Relative counts\" on top of the page. <br> <br>
+                 
+                 To view the map for specific date, drag the slider to set the date. <br> <br>
+                 <hr>
+                 </p>
+                 "), br(),
       ),
       tabItem(
         tabName = "tim_Country",
@@ -335,45 +356,28 @@ ui <- dashboardPage(
       ),
       tabItem(
         tabName = "map_over",
+        HTML(
+          "<center><h1 style = 'color:midnightblue;font-weight: bold;font-size: 40px'>Map</h1></center>"
+        ),hr(),
         HTML("
-          <h1 style= 'font-size: 28px;color:green;font-weight:bold'> Spatial Analysis </h1> <br>
-               <p style = 'font-size:15px;font-weight:bold'> Here we present a spatial map indicating counts of confirmed cases and death cases.
-               You can choose between \"Absolute counts\" and \"Relative counts\".
-                 <br><br>
-               <a style= 'font-size: 16px;color:green;font-weight:bold'> What is the difference? </a>
-               Absolute counts represent the actual counted number of cases (confirmed,
-               deaths, recoveries) for each region/country. Relative counts places the absolute
-               counts in context with regards to the population size of that region
-               (per 1 million residents). For example, if a region/country A has a population 
-               of 60 million people and 3000 infected cases, then it has (on a relative scale) 
-               50 infected cases per 1 million people. <br><br>
-               </p>
-               <p style= 'font-size: 15px;color:black;font-weight:bold'>
-               <br><br>
-               <a style= 'font-size: 16px;color:green;font-weight:bold'> Moran's Index:  </a>
-               The Moran's index, originally defined by Moran, P. A. (1950), is a measure of spatial association or spatial autocorrelation which can be used to find spatial hotspots or clusters and is available in many software applications.  This index has been defined as the measure of choice for scientists, specifically in environmental sciences, ecology and public health.
-               Moran's Index has a local and global representation.  The global Moran's I is a global measure for spatial autocorrelation while the local Moran's I index examines the individual locations, enabling hotspots to be identified based on comparisons to the neighbouring samples. 
-               The Moran index I takes value on [-1,1] and I=0 shows no spatial correlation between
-               the sub-regions for the underlying feature. According to  Gittleman and Kot (1990), there are two ways to identify the weights; 
-               by adjacency approach and geographical distance method.<br><br>
-               <a style= 'font-size: 16px;color:green;font-weight:bold'> How to interpret the outputs?:  </a>
-               In this module, we compute the global Moran's index and test its significance for countries of a given continent based on daily confirmed cases.   
-               Both weight matrices mentioned above are employed for this purpose. 
-               The null hypothesis of the mentioned two-sided test indicates that there is no significance spatially correlation between the countries, while the alternative hypothesis indicates a significant autocorrelation. 
-               Hence, if the corresponding p-value of a test is less than 0.05 (the horizontal dashed line of the first graph), then we have a significant spatial correlation for the countries of that continent, otherwise, there is no strong evidence for making such a decision.
-               More precisely, based on the second graph, if the observed value of Moran's Index is significantly greater than the expected value, then the regions
-               are positively autocorrelated, whereas if observed << expected, this will indicate negative autocorrelation. 
-               In order to see and download the corresponding outputs in detail, you can see the 'Data table' tab.
-               <br><br>
-               <a style= 'font-size: 16px;color:green;font-weight:bold'> Note: </a>
-               In the method using the geographical distance matrix, there is a parameter called 'distance threshold'. 
-              Here we have set it to be the sample median of all distances between every two countries of a given continent.
-               There is also a possibility to change it to other percentiles as well.<br><br>
-               <a style= 'font-size: 16px;color:green;font-weight:bold'> References:</a><br>
-               [1] Gittleman JL, Kot M (1990) Adaptation: statistics and a null model for estimating phylogenetic effects, Systematic Zoology 39:227-241.<br>
-               [2] Moran, P. A. (1950). Notes on continuous stochastic phenomena. Biometrika, 37(1/2), 17-23.<br>               
-               </p>
-               ")
+                 <p style = 'font-size:15px;font-weight:bold'>
+                 In this section, we display the number of confirmed cases, number of death cases, and number of recovered cases in a world map. <br> <br>
+                 
+                 <div style= 'font-size: 16px;color:midnightblue;font-weight:bold'> Options: </div>
+
+                 To view the world COVID-19 map for specific type of cases, select the interested type of cases on the left sidebar. <br> <br>
+                 
+                 To view the absolute value of number of cases, select the \"Absolute counts\" on top of the page. <br> <br>
+                 
+                 To view the relative value of number of cases, where the number of counts is relative to the country's population size in unit of 1 million residents, 
+                 select the \"Relative counts\" on top of the page. <br> <br>
+                 
+                 To add a new country into the plot, search the company's name in the text box and press enter. <br> <br>
+                 
+                 To remove a existing country from the plot, click the company's name in the text box. 
+                 <hr>
+                 </p>
+                 "), br(),
       ),
       tabItem(
         tabName = "map_ord_country",
@@ -384,7 +388,7 @@ ui <- dashboardPage(
         ui_moran_page("moran")
         #        ui_leafMap_Page("Ordinary_map")
       ),
-
+      
       #------------------------------------------------------------
       # per Continent Pages
       #------------------------------------------------------------
@@ -424,7 +428,7 @@ The generalized logistic curve is commonly used for dynamic modeling in many bra
                [2] Richards, F.J. A flexible growth function for empirical use, J. Experimental Botany 1959 Volume 10(2), pp. 290-300.
               </p>"),
       ),
-
+      
       tabItem(
         tabName = "reg_Country",
         ui_regression("RegCountry")
