@@ -124,34 +124,36 @@ ui <- dashboardPage(
           
           HTML("
                  <p style = 'font-size:15px;font-weight:bold'>
-                 Welcome to the COVID-19 Dashboard! 
-                 
-                 The goal of this dashboard is to monitor the spread of COVID-19 all over the world and visualize the key metrics related to COVID-19,
-                 such as Number of Confirmed Cases and Number of Death Cases. <hr>
+                 Welcome to the COVID-19 Dashboard! <br><br>
+                 The goal of this dashboard is to monitor the spread of COVID-19 all over the world and visualize the key metrics related to COVID-19. 
+                 The data is collected by Johns Hopkins University Center for Systems Science and Engineering (CSSEGISandData/COVID-19) and stored as a JSON file in the online Github repository (more information in the data set page). 
+                 Similar to other COVID-19 dashboards, it provides daily updated information about the number of cases in each country and continent in various visualizations.
                  </p>
                  <p>
                  <span style= 'font-weight:bold;font-size:18px'>
                  <div style= 'font-size: 16px;color:midnightblue;font-weight:bold'> Who: </div>
                  This dashboard is built for a large group of audience and there is no restriction on audience's background.
                  The target audience includes but not limited to researchers, students, and front-line workers.
-                 <hr>
+                 <br>
                  <div style= 'font-size: 16px;color:midnightblue;font-weight:bold'> What: </div>
-                 This dashboard showcases information about the data source and key metrics to monitor the spread of COVID-19. Main features are the followings: <br>
-                 Counts of Confirmed Cases, Death Cases, Recovered Cases <br>
-                 Ranks in Confirmed Cases, Death Cases, Recovered Cases <br>
-                 Time series plot of Confirmed Cases, Death Cases, Recovered Cases <br>
-                 Global map with Confirmed Cases, Death Cases, Recovered Cases visualized by circles <br>
-                 <hr>
+                 This dashboard provides information about the data source and key metrics to monitor the spread of COVID-19 all over the world.
+                 To navigate this dashboard, use the tabs on the left to go to the section based on what information you’d like to retrieve: <br>
+                 To see more information about the data source and download the dataset as a CSV file, go to the Data Set section; <br>
+                 To see the number of new cases in the past 24 hours and the total number of cases in both absolute counts and relative counts (per million population), go to the Quick Counts section <br>
+                 To see the top 50 countries ranked by the number of new cases and cumulative cases of Confirmed, Deaths, and Recovered in both absolute counts and relative counts (per million population) per day, go to the Rank Countries section <br>
+                 To see the percentage of the number of new cases and cumulative cases of Confirmed, Deaths, and Recovered in both absolute counts and relative counts (per million population) per continent per day, go to the Rank Continents section <br>
+                 To see the plot of the number of new cases and cumulative cases of Confirmed, Deaths, and Recovered in both absolute counts and relative counts (per million population) versus date per country, go to the Case Count Timelines section <br>
+                 To see the world map with circles with various sizes representing the number of new cases of Confirmed, Deaths, and Recovered in both absolute counts and relative counts (per million population) per day, go to the Map section <br>
+
+                 <br>
                  
                  <div style= 'font-size: 16px;color:midnightblue;font-weight:bold'> Why: </div>
                  With a large amount of data related to COVID-19 available, it is crucial to understand the trends and metric information about the spread of COVID-19. 
                  Dashboard, as a tool for data visualization, is a web application that ingest data on daily basis and provide updated metric information automatically.
                  With the goal of better reporting and story-telling on COVID-19 data, we build this dashboard to gain insights on the current situation of COVID-19
                  and facilitate with governmental and public health decisions.
-                 <hr>
                  </span>
                  </p>
-                 
                  "), br()
           
         ),
@@ -176,7 +178,7 @@ ui <- dashboardPage(
           "<center><h1 style = 'color:midnightblue;font-weight: bold;font-size: 40px'>Our Team</h1></center>"
         ), hr(),
         HTML("
-                      <p style = 'font-size:15px;font-weight:bold'>
+            <p style = 'font-size:15px;font-weight:bold'>
             We are a team of two MScAC (Master of Science in Applied Computing) students from University of Toronto. 
             This dashboard also serves as a project required by STA2453: Data Science Methods, Collaboration, and Communication.
             </p>
@@ -215,36 +217,6 @@ ui <- dashboardPage(
                </p>
                "),
         withSpinner(DTOutput(outputId = "tblData"), type = 6)
-      ),
-      tabItem(
-        tabName = "mainPage_Over",
-        HTML("
-          <h1 style= 'font-size: 28px;color:green;font-weight:bold'> Demographic </h1> <br>
-               <p style = 'font-size:15px;font-weight:bold'>
-               Here we present bar charts that can indicate how different
-               countries compare in terms of reported numbers of positive diagnoses
-               (confirmed), deaths, and recovery counts.<br>
-               You can choose between \"Absolute counts\" and \"Relative counts\".<br><br>
-               <a style= 'font-size: 16px;color:green;font-weight:bold'> What is the difference? </a>
-               Absolute counts represent the actual counted number of cases 
-               (confirmed, deaths, recoveries) for each region/country.
-               Relative counts places the absolute counts in context with
-               regards to the population size of that region 
-               (per 1 million residents). 
-               For example, if a region/country A has a population of 60 million people
-               and 3000 infected cases, then it has (on a relative scale) 50 infected cases
-               per 1 million people.<br><br>
-               You can use the bar above each graph to
-               \"shift the date backwards\" and explore how the data changed over time,
-               up to the date the WHO declared the COVID-19 outbreak a PHEIC 
-               (Public Health Emergency of International Concern).<br><br>
-               <a style= 'font-size: 16px;color:green;font-weight:bold'> Tip: </a> Use the play button
-               below the bar to observe an interactive plot over time! <br> 
-               <a style= 'font-size: 16px;color:green;font-weight:bold'> Note:</a>  Please be mindful
-               that the count of confirmed cases <a style= 'font-size: 16px;color:black;font-weight:italic'> includes </a>
-               count of recovered cases!
-               </p>
-               ")
       ),
       #------------------------------------------------------------
       # Rank countries by case counts
@@ -337,7 +309,6 @@ ui <- dashboardPage(
                  In this section, we show the time series plot of number of confirmed cases, number of death cases, and number of recovered cases. <br> <br>
                  
                  <div style= 'font-size: 16px;color:midnightblue;font-weight:bold'> Options: </div>
-
                  To view the time series plot of specific type of cases, select the interested type of cases on the left sidebar. <br> <br>
                  
                  To view the absolute value of number of cases, select the \"Absolute counts\" on top of the page. <br> <br>
@@ -364,7 +335,6 @@ ui <- dashboardPage(
                  In this section, we display the number of confirmed cases, number of death cases, and number of recovered cases in a world map. <br> <br>
                  
                  <div style= 'font-size: 16px;color:midnightblue;font-weight:bold'> Options: </div>
-
                  To view the world COVID-19 map for specific type of cases, select the interested type of cases on the left sidebar. <br> <br>
                  
                  To view the absolute value of number of cases, select the \"Absolute counts\" on top of the page. <br> <br>
@@ -400,34 +370,34 @@ ui <- dashboardPage(
         tabName = "tim_Continent",
         ui_timPage("tim_ContinentPage")
       )
-#       tabItem(
-#         tabName = "DGM_over",
-#         HTML("<p style= 'font-size: 15px;color:black;font-weight:bold'><a style= 'font-size: 16px;color:green;font-weight:bold'> Dynamic growth models:</a>  
-#                In this menu, we have provided two dynamic models for
-#                forecasting the future of the pandemic. To this end, 
-#                the logistic growth model (LGM) as well as the Gomperts growth model (GGM), as two special cases of the 
-#                generalized logistic curve [1], are fitted on the absolute cumulative counts of the confirmed cases (denoted by N(t)).
-#                More precisely, the following three paramters non-linear mathematical models have been utilized
-#        as the LGM and GGM, respectively:</p>"),
-#         shiny::withMathJax(helpText("$$N(t) = \\frac{\\alpha}{1+\\beta\\exp(-kt)} + \\epsilon,$$")),
-#         shiny::withMathJax(helpText("$$N(t) = \\alpha\\exp(- \\beta\\exp(-kt)) + \\epsilon.$$")),
-#         HTML("<p style= 'font-size: 15px;color:black;font-weight:bold'>
-# The generalized logistic curve is commonly used for dynamic modeling in many branches of science including chemistry,
-#                physics, material science, forestry, disease progression, sociology, etc. See [1] and [2] for more details and applications. <br><br>
-#                  <a style= 'font-size: 16px;color:green;font-weight:bold'> Note 1:</a>  
-#   Please be informed that in the plots of this module, 
-#   the points stand for the observed values 
-#   and the solid lines show the fitted dynamic models on them.<br>
-#   <a style= 'font-size: 16px;color:green;font-weight:bold'> Note 2:</a>  
-#   It is to be noted that the above-mentioned models are not fitted just on
-#   a few countries data due to the presence of some outliers. In such a situation you may encountor to the following message:<br>
-#   <a style= 'font-size: 14px;color:red;font-weight:normal;text-align:center'> An error has occurred. Check your logs or contact the app author for clarification.</a>
-#                <br><br>
-#                <a style= 'font-size: 16px;color:green;font-weight:bold'> References:</a><br>
-#                [1] Lei, Y.C.; Zhang, S.Y. Features and partial derivatives of Bertalanffy-Richards growth model in forestry, Nonlinear Anal. Model. Cont. 2004 Volume 9(1), pp. 65-73.<br>
-#                [2] Richards, F.J. A flexible growth function for empirical use, J. Experimental Botany 1959 Volume 10(2), pp. 290-300.
-#               </p>"),
-#       ),
+      #       tabItem(
+      #         tabName = "DGM_over",
+      #         HTML("<p style= 'font-size: 15px;color:black;font-weight:bold'><a style= 'font-size: 16px;color:green;font-weight:bold'> Dynamic growth models:</a>  
+      #                In this menu, we have provided two dynamic models for
+      #                forecasting the future of the pandemic. To this end, 
+      #                the logistic growth model (LGM) as well as the Gomperts growth model (GGM), as two special cases of the 
+      #                generalized logistic curve [1], are fitted on the absolute cumulative counts of the confirmed cases (denoted by N(t)).
+      #                More precisely, the following three paramters non-linear mathematical models have been utilized
+      #        as the LGM and GGM, respectively:</p>"),
+      #         shiny::withMathJax(helpText("$$N(t) = \\frac{\\alpha}{1+\\beta\\exp(-kt)} + \\epsilon,$$")),
+      #         shiny::withMathJax(helpText("$$N(t) = \\alpha\\exp(- \\beta\\exp(-kt)) + \\epsilon.$$")),
+      #         HTML("<p style= 'font-size: 15px;color:black;font-weight:bold'>
+      # The generalized logistic curve is commonly used for dynamic modeling in many branches of science including chemistry,
+      #                physics, material science, forestry, disease progression, sociology, etc. See [1] and [2] for more details and applications. <br><br>
+      #                  <a style= 'font-size: 16px;color:green;font-weight:bold'> Note 1:</a>  
+      #   Please be informed that in the plots of this module, 
+      #   the points stand for the observed values 
+      #   and the solid lines show the fitted dynamic models on them.<br>
+      #   <a style= 'font-size: 16px;color:green;font-weight:bold'> Note 2:</a>  
+      #   It is to be noted that the above-mentioned models are not fitted just on
+      #   a few countries data due to the presence of some outliers. In such a situation you may encountor to the following message:<br>
+      #   <a style= 'font-size: 14px;color:red;font-weight:normal;text-align:center'> An error has occurred. Check your logs or contact the app author for clarification.</a>
+      #                <br><br>
+      #                <a style= 'font-size: 16px;color:green;font-weight:bold'> References:</a><br>
+      #                [1] Lei, Y.C.; Zhang, S.Y. Features and partial derivatives of Bertalanffy-Richards growth model in forestry, Nonlinear Anal. Model. Cont. 2004 Volume 9(1), pp. 65-73.<br>
+      #                [2] Richards, F.J. A flexible growth function for empirical use, J. Experimental Botany 1959 Volume 10(2), pp. 290-300.
+      #               </p>"),
+      #       ),
       
       # tabItem(
       #   tabName = "reg_Country",
