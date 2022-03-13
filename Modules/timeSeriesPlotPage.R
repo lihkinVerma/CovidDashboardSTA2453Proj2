@@ -110,26 +110,6 @@ server_timeSeriesPlotPage_Ordinary <- function(input, output, session, data) {
     data = data,
     var2show = "cum_recovered", "cumRecovered_country", FALSE, n = 1
   )
-
-  callModule(server_timeSeriesPlot, "timeSeriesPlt_confirmed_prop_country",
-    data = data_prop,
-    var2show = "Cases", "confirmed_prop_country", TRUE, n = 1
-  )
-
-  callModule(server_timeSeriesPlot, "timeSeriesPlt_cumConfirmed_prop_country",
-    data = data_prop,
-    var2show = "cum_cases", "cumConfirmed_prop_country", TRUE, n = 1
-  )
-
-  callModule(server_timeSeriesPlot, "timeSeriesPlt_death_prop_country",
-    data = data_prop,
-    var2show = "Deaths", "death_prop_country", TRUE, n = 1
-  )
-
-  callModule(server_timeSeriesPlot, "timeSeriesPlt_cumDeath_prop_country",
-    data = data_prop,
-    var2show = "cum_death", "cumDeath_prop_country", TRUE, n = 1
-  )
 }
 server_timeSeriesPlotPage_Proportion <- function(input, output, session, data) {
   data_prop <- compute_proportion(data, data$Population, n = 1e6)
@@ -156,26 +136,12 @@ server_timeSeriesPlotPage_Proportion <- function(input, output, session, data) {
 
 ui_timPage <- function(id) {
   ns <- NS(id)
-  tagList(
-    radioGroupButtons(ns("Ord_prop"),
-      choices = c("Absolute counts", "Relative counts"), justified = TRUE, selected = "Absolute counts", status = "primary"
-    ),
-    conditionalPanel("input.Ord_prop == 'Absolute counts'",
-      ns = ns,
-      h2("Absolute counts"),
-      ui_timeSeriesPlotPage_Ordinary(ns("Ordinary"))
-    ),
-    conditionalPanel("input.Ord_prop == 'Relative counts'",
-      ns = ns,
-      h2("Relative counts"),
-      ui_timeSeriesPlotPage_Proportion(ns("Proportion"))
-    )
-  )
+  ui_timeSeriesPlotPage_Ordinary(ns("Ordinary"))
 }
 
 server_timPage <- function(input, output, session, data) {
   callModule(server_timeSeriesPlotPage_Ordinary, "Ordinary", data)
-  callModule(server_timeSeriesPlotPage_Proportion, "Proportion", data)
+  #callModule(server_timeSeriesPlotPage_Proportion, "Proportion", data)
 }
 
 ui <- dashboardPage(header = dashboardHeader(), sidebar = dashboardSidebar(), dashboardBody(

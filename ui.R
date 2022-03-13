@@ -56,8 +56,6 @@ ui <- dashboardPage(
       sidebarMenu(
         id = "tabs",
         menuItem("Home Page", tabName = "homepage", icon = icon("th")),
-        menuItem("Our Team", tabName = "OurTeam", icon = icon("fa-solid fa-user-plus")),
-        menuItem("Data Set", tabName = "table", icon = icon("table")),
         menuItem("Quick Counts", tabName = "overview_page", icon = icon("fa-solid fa-briefcase-medical")),
         menuItem(
           "Rank countries",
@@ -95,6 +93,8 @@ ui <- dashboardPage(
           menuItem("Overview", tabName = "map_over"),
           menuSubItem("Map", tabName = "map_ord_country")
         ),
+        menuItem("Data Set", tabName = "table", icon = icon("table")),
+        menuItem("Our Team", tabName = "OurTeam", icon = icon("fa-solid fa-user-plus")),
         br(),
         br()
       )
