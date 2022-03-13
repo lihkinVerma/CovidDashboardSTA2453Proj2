@@ -24,17 +24,17 @@ source("Modules/MainBody.R")
 source("Modules/RankBody.R")
 source("Modules/OverviewBody.R")
 source("Modules/Country_property.R")
-source("Modules/Logistic_Growth_Model_with_ggplot2.R")
+# source("Modules/Logistic_Growth_Model_with_ggplot2.R")
 source("Modules/timeSeriesPlots.R")
 source("Modules/timeSeriesPlotPage.R")
 source("Modules/leafMap_data_computation.R")
 source("Modules/leafletMap.R")
 source("Modules/leafletMap_Page.R")
 source("Modules/weight_matrices.R")
-source("Modules/Moran.R")
-source("Modules/Moran_Page.R")
-source("Modules/Moran_Main_Page.R")
-source("Modules/Logistic_Growth_Model_Page.R")
+# source("Modules/Moran.R")
+# source("Modules/Moran_Page.R")
+# source("Modules/Moran_Main_Page.R")
+# source("Modules/Logistic_Growth_Model_Page.R")
 
 #------------------------------------------------------------
 # Main UI of the dashboard
@@ -152,7 +152,7 @@ ui <- dashboardPage(
                  </span>
                  </p>
                  
-                 "), br(),
+                 "), br()
           
         ),
         fluidRow(
@@ -271,7 +271,7 @@ ui <- dashboardPage(
                  To compare the proportion of number of cases in each country, select \"pie chart\".
                  <hr>
                  </p>
-                 "), br(),
+                 "), br()
       ),
       tabItem(
         tabName = "rankPage_confirmed",
@@ -306,7 +306,7 @@ ui <- dashboardPage(
                  To compare the proportion of number of cases in each country, select \"pie chart\".
                  <hr>
                  </p>
-                 "), br(),
+                 "), br()
       ),
       tabItem(
         tabName = "rankPage_confirmed_cont",
@@ -348,7 +348,7 @@ ui <- dashboardPage(
                  To view the map for specific date, drag the slider to set the date. <br> <br>
                  <hr>
                  </p>
-                 "), br(),
+                 "), br()
       ),
       tabItem(
         tabName = "tim_Country",
@@ -377,17 +377,17 @@ ui <- dashboardPage(
                  To remove a existing country from the plot, click the company's name in the text box. 
                  <hr>
                  </p>
-                 "), br(),
+                 "), br()
       ),
       tabItem(
         tabName = "map_ord_country",
         ui_leafMap_Page("Ordinary_map")
       ),
-      tabItem(
-        tabName = "moran",
-        ui_moran_page("moran")
-        #        ui_leafMap_Page("Ordinary_map")
-      ),
+      # tabItem(
+      #   tabName = "moran",
+      #   ui_moran_page("moran")
+      #   #        ui_leafMap_Page("Ordinary_map")
+      # ),
       
       #------------------------------------------------------------
       # per Continent Pages
@@ -399,44 +399,44 @@ ui <- dashboardPage(
       tabItem(
         tabName = "tim_Continent",
         ui_timPage("tim_ContinentPage")
-      ),
-      tabItem(
-        tabName = "DGM_over",
-        HTML("<p style= 'font-size: 15px;color:black;font-weight:bold'><a style= 'font-size: 16px;color:green;font-weight:bold'> Dynamic growth models:</a>  
-               In this menu, we have provided two dynamic models for
-               forecasting the future of the pandemic. To this end, 
-               the logistic growth model (LGM) as well as the Gomperts growth model (GGM), as two special cases of the 
-               generalized logistic curve [1], are fitted on the absolute cumulative counts of the confirmed cases (denoted by N(t)).
-               More precisely, the following three paramters non-linear mathematical models have been utilized
-       as the LGM and GGM, respectively:</p>"),
-        shiny::withMathJax(helpText("$$N(t) = \\frac{\\alpha}{1+\\beta\\exp(-kt)} + \\epsilon,$$")),
-        shiny::withMathJax(helpText("$$N(t) = \\alpha\\exp(- \\beta\\exp(-kt)) + \\epsilon.$$")),
-        HTML("<p style= 'font-size: 15px;color:black;font-weight:bold'>
-The generalized logistic curve is commonly used for dynamic modeling in many branches of science including chemistry,
-               physics, material science, forestry, disease progression, sociology, etc. See [1] and [2] for more details and applications. <br><br>
-                 <a style= 'font-size: 16px;color:green;font-weight:bold'> Note 1:</a>  
-  Please be informed that in the plots of this module, 
-  the points stand for the observed values 
-  and the solid lines show the fitted dynamic models on them.<br>
-  <a style= 'font-size: 16px;color:green;font-weight:bold'> Note 2:</a>  
-  It is to be noted that the above-mentioned models are not fitted just on
-  a few countries data due to the presence of some outliers. In such a situation you may encountor to the following message:<br>
-  <a style= 'font-size: 14px;color:red;font-weight:normal;text-align:center'> An error has occurred. Check your logs or contact the app author for clarification.</a>
-               <br><br>
-               <a style= 'font-size: 16px;color:green;font-weight:bold'> References:</a><br>
-               [1] Lei, Y.C.; Zhang, S.Y. Features and partial derivatives of Bertalanffy-Richards growth model in forestry, Nonlinear Anal. Model. Cont. 2004 Volume 9(1), pp. 65-73.<br>
-               [2] Richards, F.J. A flexible growth function for empirical use, J. Experimental Botany 1959 Volume 10(2), pp. 290-300.
-              </p>"),
-      ),
-      
-      tabItem(
-        tabName = "reg_Country",
-        ui_regression("RegCountry")
-      ),
-      tabItem(
-        tabName = "reg_Continent",
-        ui_regression("RegContinent")
       )
+#       tabItem(
+#         tabName = "DGM_over",
+#         HTML("<p style= 'font-size: 15px;color:black;font-weight:bold'><a style= 'font-size: 16px;color:green;font-weight:bold'> Dynamic growth models:</a>  
+#                In this menu, we have provided two dynamic models for
+#                forecasting the future of the pandemic. To this end, 
+#                the logistic growth model (LGM) as well as the Gomperts growth model (GGM), as two special cases of the 
+#                generalized logistic curve [1], are fitted on the absolute cumulative counts of the confirmed cases (denoted by N(t)).
+#                More precisely, the following three paramters non-linear mathematical models have been utilized
+#        as the LGM and GGM, respectively:</p>"),
+#         shiny::withMathJax(helpText("$$N(t) = \\frac{\\alpha}{1+\\beta\\exp(-kt)} + \\epsilon,$$")),
+#         shiny::withMathJax(helpText("$$N(t) = \\alpha\\exp(- \\beta\\exp(-kt)) + \\epsilon.$$")),
+#         HTML("<p style= 'font-size: 15px;color:black;font-weight:bold'>
+# The generalized logistic curve is commonly used for dynamic modeling in many branches of science including chemistry,
+#                physics, material science, forestry, disease progression, sociology, etc. See [1] and [2] for more details and applications. <br><br>
+#                  <a style= 'font-size: 16px;color:green;font-weight:bold'> Note 1:</a>  
+#   Please be informed that in the plots of this module, 
+#   the points stand for the observed values 
+#   and the solid lines show the fitted dynamic models on them.<br>
+#   <a style= 'font-size: 16px;color:green;font-weight:bold'> Note 2:</a>  
+#   It is to be noted that the above-mentioned models are not fitted just on
+#   a few countries data due to the presence of some outliers. In such a situation you may encountor to the following message:<br>
+#   <a style= 'font-size: 14px;color:red;font-weight:normal;text-align:center'> An error has occurred. Check your logs or contact the app author for clarification.</a>
+#                <br><br>
+#                <a style= 'font-size: 16px;color:green;font-weight:bold'> References:</a><br>
+#                [1] Lei, Y.C.; Zhang, S.Y. Features and partial derivatives of Bertalanffy-Richards growth model in forestry, Nonlinear Anal. Model. Cont. 2004 Volume 9(1), pp. 65-73.<br>
+#                [2] Richards, F.J. A flexible growth function for empirical use, J. Experimental Botany 1959 Volume 10(2), pp. 290-300.
+#               </p>"),
+#       ),
+      
+      # tabItem(
+      #   tabName = "reg_Country",
+      #   ui_regression("RegCountry")
+      # ),
+      # tabItem(
+      #   tabName = "reg_Continent",
+      #   ui_regression("RegContinent")
+      # )
     )
   })
 )

@@ -38,7 +38,7 @@ server <- function(input, output) {
       "tim_Country" = callModule(server_timPage, "tim_CountryPage", data),
       "tim_Continent" = callModule(server_timPage, "tim_ContinentPage", data_cont),
       "map_ord_country" = callModule(server_leafMap_Page, "Ordinary_map", data),
-      "moran" = callModule(server_moran_page, "moran", data)
+      # "moran" = callModule(server_moran_page, "moran", data)
     ),
     ignoreNULL = TRUE, ignoreInit = TRUE
   )
