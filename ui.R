@@ -51,8 +51,6 @@ ui <- dashboardPage(
       sidebarMenu(
         id = "tabs",
         menuItem("Home Page", tabName = "homepage", icon = icon("th")),
-        menuItem("Our Team", tabName = "OurTeam", icon = icon("fa-solid fa-user-plus")),
-        menuItem("Data Set", tabName = "table", icon = icon("table")),
         menuItem("Quick Counts", tabName = "overview_page", icon = icon("fa-solid fa-briefcase-medical")),
         menuItem(
           "Rank Countries",
@@ -90,6 +88,8 @@ ui <- dashboardPage(
           menuItem("Overview", tabName = "map_over"),
           menuSubItem("Map", tabName = "map_ord_country")
         ),
+        menuItem("Data Set", tabName = "table", icon = icon("table")),
+        menuItem("Team members", tabName = "OurTeam", icon = icon("fa-solid fa-user-plus")),
         br(),
         br()
       )
@@ -153,16 +153,10 @@ ui <- dashboardPage(
           
         ),
         fluidRow(
-          column(width = 1),
+          column(width = 5),
           column(
             width = 1,
-            img(src = "MSCAC_uoft.png", height = "100px", width = "350px")
-          ),
-          
-          column(width = 8),
-          column(
-            width = 1,
-            img(src = "uoft.png", height = "100px", width = "100px")
+            img(src = "uoft.png", height = "150px", width = "80px")
           )
         )
       ),
@@ -186,7 +180,7 @@ ui <- dashboardPage(
              Department of Computer Science - University of Toronto, Canada </div>"),
         br(),
         HTML("<div style = 'color:midnightblue'> Code:</div> Codes are available on  <a style = 
-        'color:midnightblue'; href = https://github.com/lihkinVerma/CovidDashboardSTA2453Proj2/tree/main> Github </a>"), 
+        'color:midnightblue'; href = https://github.com/lihkinVerma/CovidDashboardSTA2453Proj2> Github </a>"), 
         br(), 
         br(),
         HTML("<a style= 'font-size: 16px;color:green;font-weight:bold'> References:</a><br>
@@ -326,6 +320,9 @@ ui <- dashboardPage(
         tabName = "tim_Country",
         ui_timPage("tim_CountryPage")
       ),
+      #------------------------------------------------------------
+      # World map
+      #------------------------------------------------------------
       tabItem(
         tabName = "map_over",
         HTML(
