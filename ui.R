@@ -127,17 +127,17 @@ ui <- dashboardPage(
                  <div style= 'font-size: 16px;color:midnightblue;font-weight:bold'> Who can use this dashboard: </div>
                  This dashboard is built for a large group of audience and there is no restriction on audience's background.
                  The target audience includes but not limited to researchers, students, and front-line workers.
-                 Also it is useful for media houses to compare trends in Covid-19 affected nations across the world.
+                 Also it is useful for media houses to compare trends in COVID-19 affected nations across the world.
                  <hr>
                  <div style= 'font-size: 16px;color:midnightblue;font-weight:bold'> What information is provided: </div>
                  This dashboard provides information about the data source and key metrics to monitor the spread of COVID-19 all over the world.
                  To navigate this dashboard, use the tabs on the left to go to the section based on what information you’d like to retrieve: <br>
                  To see more information about the data source and download the dataset as a CSV file, go to the Data Set section <br>
-                 To see the number of new cases in the past 24 hours and the total number of cases in both absolute counts and relative counts (per million population), go to the Quick Counts section <br>
-                 To see the top 50 countries ranked by the number of new cases and cumulative cases of Confirmed, Deaths, and Recovered in both absolute counts and relative counts (per million population) per day, go to the Rank Countries section <br>
-                 To see the percentage of the number of new cases and cumulative cases of Confirmed, Deaths, and Recovered in both absolute counts and relative counts (per million population) per continent per day, go to the Rank Continents section <br>
-                 To see the plot of the number of new cases and cumulative cases of Confirmed, Deaths, and Recovered in both absolute counts and relative counts (per million population) versus date per country, go to the Case Count Timelines section <br>
-                 To see the world map with circles with various sizes representing the number of new cases of Confirmed, Deaths, and Recovered in both absolute counts and relative counts (per million population) per day, go to the Map section <br>
+                 To see the number of new cases in the past 24 hours and the total number of cases, go to the Quick Counts section <br>
+                 To see the top 50 countries ranked by the number of new cases and cumulative cases of Confirmed, Deaths, and Recovered per country per day, go to the Rank Countries section <br>
+                 To see the percentage of the number of new cases and cumulative cases of Confirmed, Deaths, and Recovered per continent per day, go to the Rank Continents section <br>
+                 To see the plot of the number of new cases and cumulative cases of Confirmed, Deaths, and Recovered versus date per country, go to the Case Count Timelines section <br>
+                 To see the world map with circles with various sizes representing the number of new cases of Confirmed, Deaths, and Recovered per day, go to the Map section <br>
                  <hr>
                  
                  <div style= 'font-size: 16px;color:midnightblue;font-weight:bold'> Why is this dashboard important: </div>
@@ -204,7 +204,9 @@ ui <- dashboardPage(
                To save a copy to your local machine, you can press the 'CSV' button to download the entire up-to-date dataset. <br><br>
                You can also filter the dataset by country or by date: <br> <br>
                To filter the dataset by county: enter the country's name in the search bar. <br> <br>
-               To filter the dataset by date: enter the date in the format of 'yyyy-mm-dd' in the search bar.  </div>
+               To filter the dataset by date: enter the date in the format of 'yyyy-mm-dd' in the search bar.  <br> <br>
+               To copy the data to your clipboard, click the 'Copy' button . <br> <br>
+               To print or save the data as a PDF file, click the 'Print' button. </div>
                </p>
                "),
         withSpinner(DTOutput(outputId = "tblData"), type = 6)
@@ -296,18 +298,13 @@ ui <- dashboardPage(
         ),hr(),
         HTML("
                  <p style = 'font-size:16px;font-weight:bold'>
-                 In this section, we display the time series plots of number of confirmed cases, number of death cases, and number of recovered cases in either absolute values or relative values (per million population).
+                 In this section, we display the time series plots of number of confirmed cases, number of death cases, and number of recovered cases.
                  The plots show the number of cases (y-axis) versus the date (x-axis) which shows the trends of the number of cases up to now. 
                  Lines are created by marking polygon for case count, which helps in visualizing if the curve of cases is increasing or decreasing with respect to previous dates. <br> <br>
                  </p>
                  <div style= 'font-size: 16px;color:midnightblue;font-weight:bold'> You have the following options to interact with the dashboard:  </div> <br> 
                  <p style = 'font-size:16px'> 
                  To view the time series plot of specific type of cases (confirmed, death, recovery), select the <b>type of cases</b> on the top of the page. <br> <br>
-                  
-                  
-                 To view the absolute value of the number of cases, select the <b>\"Absolute counts\"</b> on top of the page. <br><br>
-
-                 To view the relative value of the number of cases (per million population), select the <b>\"Relative counts\"</b> on top of the page. <br> <br>
                  
                  To add a country into the plot, search for the country in the <b>selection box</b>. <br><br>
                  
@@ -330,7 +327,7 @@ ui <- dashboardPage(
         ),hr(),
         HTML("
                  <p style = 'font-size:16px;font-weight:bold'>
-                 In this section, we display the number of confirmed cases, number of death cases, and number of recovered cases in either absolute values or relative values (per million population) on a world map.
+                 In this section, we display the number of confirmed cases, number of death cases, and number of recovered cases on a world map.
                  You will see multiple circles on a world map and each of them represents a country.
                  The bigger the circle is, the greater the number of cases in the corresponding country.
                  If you hover the mouse over the circles, a text box showing the number of confirmed cases, the number of deaths, and the number of recoveries will be shown next to the circle. <br> <br>
@@ -338,10 +335,6 @@ ui <- dashboardPage(
                  <div style= 'font-size: 16px;color:midnightblue;font-weight:bold'> You have the following options to interact with the dashboard: </div> <br> 
                  <p style = 'font-size:16px'>
                  To view the world COVID-19 map for specific type of cases (confirmed, death, recovery), select the <b>type of cases</b> on the top of the page. <br> <br>
-
-                 To view the absolute value of the number of cases, select the <b>\"Absolute counts\"</b> on top of the page. <br> <br>
-
-                 To view the relative value of number of cases (per million population), select the <b>\"Relative counts\"</b> on top of the page. <br> <br>
 
                  To change the date, use the <b>slider</b> to select the date of interest.
                  <hr>
