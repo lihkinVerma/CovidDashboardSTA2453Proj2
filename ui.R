@@ -113,15 +113,11 @@ ui <- dashboardPage(
         tags$img(src = "techcoronav.gif", style = "position: absolute; opacity: 0.2"),
         column(
           width = 12,
-          
           HTML(
             "<center>
               <h1 style = 'color:midnightblue;font-weight: bold;font-size: 40px'>COVID-19 Dashboard</h1>
             </center>"
           ), 
-          
-          
-          
           HTML("
                  <p style = 'font-size:15px;font-weight:bold'>
                  Welcome to the COVID-19 Dashboard! <br><br>
@@ -138,7 +134,7 @@ ui <- dashboardPage(
                  <div style= 'font-size: 16px;color:midnightblue;font-weight:bold'> What: </div>
                  This dashboard provides information about the data source and key metrics to monitor the spread of COVID-19 all over the world.
                  To navigate this dashboard, use the tabs on the left to go to the section based on what information you’d like to retrieve: <br>
-                 To see more information about the data source and download the dataset as a CSV file, go to the Data Set section; <br>
+                 To see more information about the data source and download the dataset as a CSV file, go to the Data Set section <br>
                  To see the number of new cases in the past 24 hours and the total number of cases in both absolute counts and relative counts (per million population), go to the Quick Counts section <br>
                  To see the top 50 countries ranked by the number of new cases and cumulative cases of Confirmed, Deaths, and Recovered in both absolute counts and relative counts (per million population) per day, go to the Rank Countries section <br>
                  To see the percentage of the number of new cases and cumulative cases of Confirmed, Deaths, and Recovered in both absolute counts and relative counts (per million population) per continent per day, go to the Rank Continents section <br>
@@ -155,25 +151,23 @@ ui <- dashboardPage(
                  </span>
                  </p>
                  "), br()
-          
         ),
         fluidRow(
           column(width = 1),
           column(
             width = 1,
             img(src = "MSCAC_uoft.png", height = "100px", width = "350px")
-          ),
+                ),
           
           column(width = 8),
           column(
             width = 1,
             img(src = "uoft.png", height = "100px", width = "100px")
-          )
+                )
         )
       ),
       tabItem(
         tabName = "OurTeam",
-        
         HTML(
           "<center><h1 style = 'color:midnightblue;font-weight: bold;font-size: 40px'>Our Team</h1></center>"
         ), hr(),
@@ -183,7 +177,6 @@ ui <- dashboardPage(
             This dashboard also serves as a project required by STA2453: Data Science Methods, Collaboration, and Communication.
             </p>
                "),
-        
         HTML("<div style = 'font-size: 14.5px;color:black;font-weight:bold'> 
              <a style = 'font-size: 16px;color:midnightblue;font-weight:bold'> 
              Nikhil Verma </a>: 
@@ -230,17 +223,16 @@ ui <- dashboardPage(
         HTML(
           "<center><h1 style = 'color:midnightblue;font-weight: bold;font-size: 40px'>Rank Countires</h1></center>"
         ), hr(),
-        HTML("
-                 <p style = 'font-size:15px;font-weight:bold'>
-                 In this section, we show the rank of countries based on number of confirmed cases, number of death cases,
-                 and number of recovered cases. <br> <br>
+        HTML("<p style = 'font-size:15px;font-weight:bold'>
+                 In this section, we show the top 50 countries ranked by the number of confirmed cases, the number of death cases, and the number of recovered cases. 
+                 Ranking by new cases per day is displayed on the left and ranking by cumulative cases is displayed on the right. <br> <br>
                  
-                 <div style= 'font-size: 16px;color:midnightblue;font-weight:bold'> Options: </div>
+                 <div style= 'font-size: 16px;color:midnightblue;font-weight:bold'> You have the following options to interact with the dashboard: </div>
                  
-                 To view the rank based on specific case type, you can go to the left sidebar and select the case type. <br> <br>
-                 To view the rank within a time period, you can drag the timeline bar at the top of the dashboard to set the start date and end date. <br> <br>
+                 To view the rank based on specific type of cases (confirmed, death, recovery), go to the left sidebar and select the case type. <br> <br>
+                 To view the proportion for a certain date, drag the timeline bar at the top of the dashboard to set the date. <br> <br>
                  To compare the absolute number of cases in each country, you can select \"bar chart\". <br> <br>
-                 To compare the proportion of number of cases in each country, select \"pie chart\".
+                 To compare the proportion of the number of cases in each country, select \"pie chart\".
                  <hr>
                  </p>
                  "), br()
@@ -267,15 +259,14 @@ ui <- dashboardPage(
         ), hr(),
         HTML("
                  <p style = 'font-size:15px;font-weight:bold'>
-                 In this section, we show the rank of ontinents based on number of confirmed cases, number of death cases,
-                 and number of recovered cases. <br> <br>
+                 In this section, we show the percentage of confirmed cases, percentage of death cases, and percentage of recovered cases among the 6 continents. 
+                 It gives an overview of the proportion of the number of cases for each continent. 
+                 Proportion by new cases per day is displayed on the left and Proportion by cumulative cases is displayed on the right. <br> <br>
                  
-                 <div style= 'font-size: 16px;color:midnightblue;font-weight:bold'> Options: </div>
+                 <div style= 'font-size: 16px;color:midnightblue;font-weight:bold'> You have the following options to interact with the dashboard:  </div>
                  
-                 To view the rank based on specific case type, go to the left sidebar and select the case type. <br> <br>
-                 To view the rank within a time period, drag the timeline bar at the top of the dashboard to set the start date and end date. <br> <br>
-                 To compare the absolute number of cases in each country, select \"bar chart\". <br> <br>
-                 To compare the proportion of number of cases in each country, select \"pie chart\".
+                 To view the rank based on specific type of cases (confirmed, death, recovery), go to the left sidebar and select the case type. <br> <br>
+                 To view the proportion for a certain date, drag the timeline bar at the top of the dashboard to set the date. <br> <br>
                  <hr>
                  </p>
                  "), br()
@@ -306,17 +297,13 @@ ui <- dashboardPage(
         ),hr(),
         HTML("
                  <p style = 'font-size:15px;font-weight:bold'>
-                 In this section, we show the time series plot of number of confirmed cases, number of death cases, and number of recovered cases. <br> <br>
+                 In this section, we display the time series plots of number of confirmed cases, number of death cases, and number of recovered cases in either absolute values or relative values (per million population). 
+                 The plots show the number of cases (y-axis) versus the date (x-axis) which shows the trends of the number of cases up to now. <br> <br>
                  
-                 <div style= 'font-size: 16px;color:midnightblue;font-weight:bold'> Options: </div>
-                 To view the time series plot of specific type of cases, select the interested type of cases on the left sidebar. <br> <br>
+                 <div style= 'font-size: 16px;color:midnightblue;font-weight:bold'> You have the following options to interact with the dashboard:  </div>
+                 To view the time series plot of specific type of cases (confirmed, death, recovery), select the type of cases on the top of the page. <br> <br>
                  
-                 To view the absolute value of number of cases, select the \"Absolute counts\" on top of the page. <br> <br>
-                 
-                 To view the relative value of number of cases, where the number of counts is relative to the country's population size in unit of 1 million residents, 
-                 select the \"Relative counts\" on top of the page. <br> <br>
-                 
-                 To view the map for specific date, drag the slider to set the date. <br> <br>
+                 To view the absolute value of the number of cases, select the \"Absolute counts\" on top of the page. <br> <br>
                  <hr>
                  </p>
                  "), br()
@@ -332,19 +319,19 @@ ui <- dashboardPage(
         ),hr(),
         HTML("
                  <p style = 'font-size:15px;font-weight:bold'>
-                 In this section, we display the number of confirmed cases, number of death cases, and number of recovered cases in a world map. <br> <br>
+                 In this section, we display the number of confirmed cases, number of death cases, and number of recovered cases in either absolute values or relative values (per million population) on a world map. 
+                 You will see multiple circles on a world map and each of them represents a country. 
+                 The bigger the circle is, the greater the number of cases in the corresponding country. 
+                 If you hover the mouse over the circles, a text box showing the number of confirmed cases, the number of deaths, and the number of recoveries will be shown next to the circle. <br> <br>
                  
-                 <div style= 'font-size: 16px;color:midnightblue;font-weight:bold'> Options: </div>
-                 To view the world COVID-19 map for specific type of cases, select the interested type of cases on the left sidebar. <br> <br>
+                 <div style= 'font-size: 16px;color:midnightblue;font-weight:bold'> You have the following options to interact with the dashboard: </div>
+                 To view the world COVID-19 map for specific type of cases (confirmed, death, recovery), select the type of cases on the top of the page. <br> <br>
                  
-                 To view the absolute value of number of cases, select the \"Absolute counts\" on top of the page. <br> <br>
+                 To view the absolute value of the number of cases, select the \"Absolute counts\" on top of the page. <br> <br>
                  
-                 To view the relative value of number of cases, where the number of counts is relative to the country's population size in unit of 1 million residents, 
-                 select the \"Relative counts\" on top of the page. <br> <br>
+                 To view the relative value of number of cases (per million population), select the \"Relative counts\" on top of the page. <br> <br>
                  
-                 To add a new country into the plot, search the company's name in the text box and press enter. <br> <br>
-                 
-                 To remove a existing country from the plot, click the company's name in the text box. 
+                 To change the date, use the slider to select the date of interest.
                  <hr>
                  </p>
                  "), br()
