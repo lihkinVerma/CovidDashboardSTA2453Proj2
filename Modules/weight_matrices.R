@@ -1,14 +1,4 @@
-# South_America <- c(
-#   "Brazil", "Colombia", "Argentina",  "Peru",
-#   "Venezuela", "Chile", "Ecuador", "Bolivia",
-#   "Paraguay", "Uruguay", "Guyana",
-#   "Suriname"
-# )
-# continent <- fread("Modules/countryContinent.csv")
-# continent[["continent"]][continent[["country"]] %in% South_America] <-
-#  "South_America"
-# continent[["continent"]][continent[["continent"]] == "Americas"] <- "North_America"
-# fwrite(continent, "Modules/countryContinent.csv")
+
 #------Adjacency-----------
 adjucent_Country_data <- function() {
   nickName <- readLines("Modules/nickName.txt")

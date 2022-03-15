@@ -11,11 +11,9 @@ f_dist_Countries <- function() {
   # Computing distance
   #----------------------
   f <- function(x, y) {
-    # long <- world2$longitude
     rad <- pi / 180
     R <- 6371 # earth radius in km.
     d_lat <- (x - world2$latitude) * rad
-    # print(d_lat)
     d_long <- (y - world2$longitude) * rad
     #
     x <- x * rad
@@ -27,8 +25,6 @@ f_dist_Countries <- function() {
     # print(C)
     R * C
   }
-  # a <- f(1,1)
-  # f(world2$lat,world2$long)
 
   dis <- purrr::map2(world2$latitude, world2$longitude, f)
 

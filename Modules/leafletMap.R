@@ -1,3 +1,4 @@
+
 # leaflet shows:
 library(leaflet)
 library(leaflet.providers)
@@ -21,6 +22,9 @@ switch_labels <- function(x) {
   )
 }
 
+# -------------------------------------------------------
+# Defining ui and server
+# -------------------------------------------------------
 ui_leafMap <- function(id) {
   ns <- NS(id)
   tagList(

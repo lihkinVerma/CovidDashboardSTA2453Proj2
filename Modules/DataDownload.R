@@ -4,12 +4,17 @@ library(dplyr)
 library(stringr)
 library(readxl)
 
+# -------------------------------------------------------
+# Download data by making a GET request to the API
+# -------------------------------------------------------
 DataDownload <- function() {
   data <- jsonlite::fromJSON("https://pomber.github.io/covid19/timeseries.json")
   #data <- lapply(data, function(x) tail(x, 7))
   names(data) <- f_Country_wrangling(names(data))
 
-
+  # -------------------------------------------------------
+  # Functions to process json data 
+  # -------------------------------------------------------
   f <- function(x, Countries) {
     Cases <- with(x, c(0, abs(diff(confirmed))))
     Deaths <- with(x, c(0, abs(diff(deaths))))
@@ -20,6 +25,7 @@ DataDownload <- function() {
     names(x) <- c("DateRep", "cum_cases", "cum_death", "cum_recovered")
     cbind(Countries, x, Cases, Deaths, Recovered)
   }
+  
   f2 <- function(x) {
     res <- data.frame()
     for (i in seq_along(x)) {
@@ -40,6 +46,7 @@ DataDownload <- function() {
     }
     paste(xx, collapse = "-", sep = "")
   })
+  
   f4 <- Vectorize(function(x) {
     xx <- unlist(strsplit(x, split = "-"))
     if (nchar(xx[2]) < 2) {
@@ -53,9 +60,10 @@ DataDownload <- function() {
   data3$DateRep <- f3(data3$DateRep)
   data3$DateRep <- reorder(data3$DateRep, f4(data3$DateRep))
   names(data3$DateRep) <- NULL
-  ###
-  # adding world data
-
+  
+  # -------------------------------------------------------
+  # adding world data from all data loaded from API
+  # -------------------------------------------------------
   data <- data3 %>%
     group_by(DateRep) %>%
     tidyr::nest()
@@ -70,9 +78,10 @@ DataDownload <- function() {
   }
   data$data <- lapply(data$data, f_world)
   data <- tidyr::unnest(data)
-
-
-  ### adding population Data:
+  
+  # -------------------------------------------------------
+  # adding population Data from population.csv file
+  # -------------------------------------------------------
   pop <- fread("Modules/population.csv")
   pop <- tibble::add_row(pop, Countries = "World", Population = sum(pop$Population))
   pop$Countries <- f_Country_wrangling(pop$Countries)

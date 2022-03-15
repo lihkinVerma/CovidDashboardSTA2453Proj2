@@ -1,8 +1,12 @@
+
 # data wrangling
 library(dplyr)
 library(data.table)
 library(tidyr)
 
+#------------------------------------------------
+# Function to rank the data
+#------------------------------------------------
 compute_cum_ranks <- function(data) {
   f_rank <- function(data) {
     f1 <- function(x) {

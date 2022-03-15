@@ -5,6 +5,9 @@ library(plotly)
 library(plotlyGeoAssets)
 library(dplyr)
 
+# -------------------------------------------------------
+# Defining ui and server
+# -------------------------------------------------------
 ui_overviewBody <- function(id, ProportionShow = TRUE) {
   ns <- NS(id)
   tagList(

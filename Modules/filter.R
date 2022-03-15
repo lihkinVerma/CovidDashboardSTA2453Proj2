@@ -1,9 +1,7 @@
 library(dplyr)
 
 ntop_data <- function(data, n, filtertype) {
-  # "case" "death" recovered "date_case" "date_death" date_recovered
-
-  #####
+  # "case" "death" recovered "date_case" "date_death" "date_recovered"
   filter_ntop_case <- function(data, n) {
     data %>%
       group_by(Countries) %>%

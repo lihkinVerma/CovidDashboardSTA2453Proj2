@@ -1,4 +1,7 @@
 
+# -------------------------------------------------------
+# Defining ui and server
+# -------------------------------------------------------
 ui_rankBody_Page <- function(id, var2View, is_continent=FALSE) {
   ns <- NS(id)
   tagList(

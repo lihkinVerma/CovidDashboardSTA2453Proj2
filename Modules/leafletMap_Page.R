@@ -1,4 +1,7 @@
 
+# -------------------------------------------------------
+# Defining ui and server
+# -------------------------------------------------------
 ui_leafMap_Page <- function(id) {
   ns <- NS(id)
   tabsetPanel(
@@ -24,6 +27,9 @@ server_leafMap_Page <- function(input, output, session, data) {
   callModule(server_leafMap, "map_recovered_ord_country", data2, var2show = "recovered")
 }
 
+# -------------------------------------------------------
+# just for testing File
+# -------------------------------------------------------
 ui <- fluidPage(
   ui_leafMap_Page("f_1")
 )

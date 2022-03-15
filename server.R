@@ -3,7 +3,13 @@ library(shiny)
 library(DT)
 library(shinycssloaders)
 
+#------------------------------------------------------------
+# Main SERVER of the dashboard
+#------------------------------------------------------------
 server <- function(input, output) {
+  # -----------------------------
+  # Obtaining data from API
+  # -----------------------------
   data <- DataDownload()
   output$tblData <- renderDT(
     server = F,
@@ -24,6 +30,9 @@ server <- function(input, output) {
     )
   )
   data_cont <- continent_data(data)
+  # -----------------------------
+  # Observing events
+  # -----------------------------
   observeEvent(input$tabs,
     switch(input$tabs,
       "mainPage_country" = callModule(server_mainBody_Page, "mainPage__country", data),
@@ -38,7 +47,6 @@ server <- function(input, output) {
       "tim_Country" = callModule(server_timPage, "tim_CountryPage", data),
       "tim_Continent" = callModule(server_timPage, "tim_ContinentPage", data_cont),
       "map_ord_country" = callModule(server_leafMap_Page, "Ordinary_map", data)
-      # "moran" = callModule(server_moran_page, "moran", data)
     ),
     ignoreNULL = TRUE, ignoreInit = TRUE
   )

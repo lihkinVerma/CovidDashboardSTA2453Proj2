@@ -2,6 +2,11 @@ library(shiny)
 library(plotly)
 library(dplyr)
 library(shinycssloaders)
+
+
+# -------------------------------------------------------
+# Pre processing labels
+# -------------------------------------------------------
 f_labels <- function(x) {
   switch(x,
     "Cases" = return("New cases"),
@@ -13,11 +18,23 @@ f_labels <- function(x) {
   )
 }
 
+
+# -------------------------------------------------------
+# Defining ui and server
+# -------------------------------------------------------
 ui_barCharts <- function(id) {
   ns <- NS(id)
   tagList(
-    sliderInput(ns("inp"), label = "Day", min = 1, max = 10, value = 10, step = 2, width = "400px", animate = TRUE),
-    withSpinner(plotlyOutput(ns("plt")), type = 6)
+    sliderInput(ns("inp"), 
+                label = "Day", 
+                min = 1,
+                max = 10, 
+                value = 10, 
+                step = 2, 
+                width = "400px", 
+                animate = TRUE),
+    withSpinner(plotlyOutput(ns("plt")), 
+                type = 6)
   )
 }
 
@@ -69,6 +86,10 @@ server_barCharts <- function(input, output, session, data, Var2show, how_many = 
   })
 }
 
+
+# -------------------------------------------------------
+# just for testing File
+# -------------------------------------------------------
 ui <- fluidPage(
   ui_barCharts("f_1")
 )

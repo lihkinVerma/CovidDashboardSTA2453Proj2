@@ -12,15 +12,12 @@ library(shinydashboardPlus)
 source("Modules/CountryName_wrangling.R")
 source("Modules/DataDownload.R")
 source("Modules/Continent.R")
-source("Modules/MainBody_Page.R")
 source("Modules/OverviewBody_Page.R")
 source("Modules/RankBody_Page.R")
-source("Modules/compute_proportion.R")
 source("Modules/compute_cum_ranks.R")
 source("Modules/filter.R")
 source("Modules/barCharts.R")
 source("Modules/pieCharts.R")
-source("Modules/MainBody.R")
 source("Modules/RankBody.R")
 source("Modules/OverviewBody.R")
 source("Modules/Country_property.R")
@@ -29,7 +26,6 @@ source("Modules/timeSeriesPlotPage.R")
 source("Modules/leafMap_data_computation.R")
 source("Modules/leafletMap.R")
 source("Modules/leafletMap_Page.R")
-source("Modules/weight_matrices.R")
 
 #------------------------------------------------------------
 # Main UI of the dashboard
@@ -285,10 +281,6 @@ ui <- dashboardPage(
       #------------------------------------------------------------
       # Per country pages
       #------------------------------------------------------------
-      tabItem(
-        tabName = "mainPage_country",
-        ui_mainBody_Page("mainPage__country")
-      ),
       tabItem(
         tabName = "tim_over",
         HTML(

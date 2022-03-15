@@ -4,6 +4,9 @@ library(shinyWidgets)
 library(plotly)
 library(plotlyGeoAssets)
 
+# -------------------------------------------------------
+# Defining ui and server
+# -------------------------------------------------------
 ui_rankBody <- function(id, var_to_view, is_continent = FALSE) {
   ns <- NS(id)
   if(!is_continent){
