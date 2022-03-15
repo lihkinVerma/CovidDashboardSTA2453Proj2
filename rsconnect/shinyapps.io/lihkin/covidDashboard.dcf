@@ -5,9 +5,9 @@ account: lihkin
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 5713726
-bundleId: 5682137
+bundleId: 5684529
 url: https://lihkin.shinyapps.io/covidDashboard/
-when: 1647270224.4626
-lastSyncTime: 1647270224.46261
+when: 1647306773.95788
+lastSyncTime: 1647306773.9579
 asMultiple: FALSE
 asStatic: FALSE
