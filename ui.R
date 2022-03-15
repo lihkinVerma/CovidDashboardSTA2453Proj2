@@ -129,11 +129,11 @@ ui <- dashboardPage(
                  This dashboard provides information about the data source and key metrics to monitor the spread of COVID-19 all over the world.
                  To navigate this dashboard, use the tabs on the left to go to the section based on what information you’d like to retrieve: <br>
                  To see more information about the data source and download the dataset as a CSV file, go to the Data Set section <br>
-                 To see the number of new cases in the past 24 hours and the total number of cases in both absolute counts and relative counts (per million population), go to the Quick Counts section <br>
-                 To see the top 50 countries ranked by the number of new cases and cumulative cases of Confirmed, Deaths, and Recovered in both absolute counts and relative counts (per million population) per day, go to the Rank Countries section <br>
-                 To see the percentage of the number of new cases and cumulative cases of Confirmed, Deaths, and Recovered in both absolute counts and relative counts (per million population) per continent per day, go to the Rank Continents section <br>
-                 To see the plot of the number of new cases and cumulative cases of Confirmed, Deaths, and Recovered in both absolute counts and relative counts (per million population) versus date per country, go to the Case Count Timelines section <br>
-                 To see the world map with circles with various sizes representing the number of new cases of Confirmed, Deaths, and Recovered in both absolute counts and relative counts (per million population) per day, go to the Map section <br>
+                 To see the number of new cases in the past 24 hours and the total number of cases, go to the Quick Counts section <br>
+                 To see the top 50 countries ranked by the number of new cases and cumulative cases of Confirmed, Deaths, and Recovered per day, go to the Rank Countries section <br>
+                 To see the percentage of the number of new cases and cumulative cases of Confirmed, Deaths, and Recovered per continent per day, go to the Rank Continents section <br>
+                 To see the plot of the number of new cases and cumulative cases of Confirmed, Deaths, and Recovered versus date per country, go to the Case Count Timelines section <br>
+                 To see the world map with circles with various sizes representing the number of new cases of Confirmed, Deaths, and Recovered per day, go to the Map section <br>
                  <hr>
                  
                  <div style= 'font-size: 16px;color:midnightblue;font-weight:bold'> Why is this dashboard important: </div>
@@ -295,12 +295,7 @@ ui <- dashboardPage(
                  <div style= 'font-size: 16px;color:midnightblue;font-weight:bold'> You have the following options to interact with the dashboard:  </div> <br> 
                  <p style = 'font-size:16px'> 
                  To view the time series plot of specific type of cases (confirmed, death, recovery), select the <b>type of cases</b> on the top of the page. <br> <br>
-                  
-                  
-                 To view the absolute value of the number of cases, select the <b>\"Absolute counts\"</b> on top of the page. <br><br>
-
-                 To view the relative value of the number of cases (per million population), select the <b>\"Relative counts\"</b> on top of the page. <br> <br>
-                 
+            
                  To add a country into the plot, search for the country in the <b>selection box</b>. <br><br>
                  
                  To remove a country from the plot, click on the country name in the <b>selection box</b>.
@@ -330,10 +325,6 @@ ui <- dashboardPage(
                  <div style= 'font-size: 16px;color:midnightblue;font-weight:bold'> You have the following options to interact with the dashboard: </div> <br> 
                  <p style = 'font-size:16px'>
                  To view the world COVID-19 map for specific type of cases (confirmed, death, recovery), select the <b>type of cases</b> on the top of the page. <br> <br>
-
-                 To view the absolute value of the number of cases, select the <b>\"Absolute counts\"</b> on top of the page. <br> <br>
-
-                 To view the relative value of number of cases (per million population), select the <b>\"Relative counts\"</b> on top of the page. <br> <br>
 
                  To change the date, use the <b>slider</b> to select the date of interest.
                  <hr>
